@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import "./Header.css"
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,18 +6,32 @@ import { faShoppingCart, faMagnifyingGlass, faHeart, faEye, faForward, faBackwar
 
 
 const Header = () => {
+  const [active, setActive] = useState(null);
+
+  const links = [
+    {id:"1", endpoint:"/", name:"Home"},
+    {id:"2", endpoint:"/Contact", name:"Contact"},
+    {id:"3", endpoint:"/About", name:"About"},
+    {id:"4", endpoint:"/Sign-up", name:"Sign-up"}
+  ];
+
+  function toggleActive(id){
+    setActive(id);
+  }
+
   return (
     <>
       <div className="header-container">
         <div className="app-name">
-          <NavLink to="/Home">Agbogbloshie <FontAwesomeIcon icon={faTruckFast}/></NavLink>
+          <NavLink to="/">Agbogbloshie <FontAwesomeIcon icon={faTruckFast}/></NavLink>
         </div>
-        <div className="links">
-            <NavLink to="/Home">Home</NavLink>
-            <NavLink to="/Contact">Contact</NavLink>
-            <NavLink to="/About">About</NavLink>
-            <NavLink to="/Sign-up">Sign-up</NavLink>
-        </div>
+        <nav className="links">
+          {
+            links.map(link => (
+              <NavLink key={link.id} to={link.endpoint} className={active === link.id ? "active" : ""} onClick={() => toggleActive(link.id)}>{link.name}</NavLink>
+            ))
+          }
+        </nav>
         <div className="search-bar">
             <input type="text" placeholder='what are you looking for?' />
             <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass}/>
