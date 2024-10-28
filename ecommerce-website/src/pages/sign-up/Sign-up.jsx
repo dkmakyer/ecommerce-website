@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Sign-up.css"
 import images from "../../images";
+import { NavLink } from 'react-router-dom';
 
 const SignUp = () => {
   const { shopping, miniMart, google } = images;
@@ -23,7 +24,7 @@ const SignUp = () => {
             </div>
             <div className="log-in">
               <p>Already have an account?</p>
-              <button className="log-in-button">Log in</button>
+              <NavLink to="/Log-in" className="log-in-link-button">Log in</NavLink>
             </div>
           </form>
         </div>
