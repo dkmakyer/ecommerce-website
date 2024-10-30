@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.home-container{
+    padding: 1.5rem 7rem;
+}
+.ads{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.ads-links{
+    border-right:1px solid black;
+    width: 250px;
+}
+.ads-links ul li{
+    list-style-type: none;
+    padding: 0.2rem 0;
+}
+.ads-info{
+    background-image: url("../../assets/pepsi-image.jpg");
+    /*we will use js to dynamically change the background image based on the current item from the api*/
+    /*do it by giving an id to the ads-info class and changing the css directly in js*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+    color: rgb(255, 255, 255);
+    width: 750px;
+    height: 300px;
+    padding: 4rem;
+}
+.ads-info p, .ads-info h1{
+    margin-bottom: 1rem;
+}
+.ads-info h1{
+    width: 190px;
+}
+.caret-link-one{
+    transform: translateX(6rem);
+}.caret-link-two{
+    transform: translateX(7.2rem);
+}
+.ads-info button{
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid rgb(255, 250, 250);
+}
+/*flash sales css below*/
+.flash-sales-container{
+    margin-top: 5rem;
+}
+
+.timer, .countdown, .countdown p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.countdown{
+    transform: translateX(-7.5rem);
+}
+.countdown p{
+    flex-direction: column;
+    margin-right: 30px;
+    font-size: 30px;
+}
+.reduce-time-size{
+    font-size: 10px;
+}
+.colon{
+    transform: translate(1.9rem, -2.4rem);
+    color: red;
+}
+.countdown p:nth-of-type(4){
+    transform: translateY(-1.04rem);
+}
