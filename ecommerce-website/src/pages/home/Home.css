@@ -56,14 +56,17 @@
 .flash-sales-container{
     margin-top: 5rem;
 }
-
-.timer, .countdown, .countdown p{
+.today{
+    color: red;
+    width: 70px;
+}
+.today, .timer, .countdown, .countdown p, .scroll{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .countdown{
-    transform: translateX(-7.5rem);
+    transform: translate(-7.5rem, 1rem);
 }
 .countdown p{
     flex-direction: column;
@@ -79,4 +82,20 @@
 }
 .countdown p:nth-of-type(4){
     transform: translateY(-1.04rem);
+}
+.scroll{
+    width: 85px;
+}
+.left-arrow, .right-arrow{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(231, 230, 230, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 20px;
+}
+.left-arrow:hover, .right-arrow:hover{
+    background-color: rgb(214, 214, 214);
 }

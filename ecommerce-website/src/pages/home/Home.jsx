@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faCaretRight, faEye, faHeart, faMapPin } from "@fortawesome/free-solid-svg-icons";
 import images from "../../images";
 
 const Home = () => {
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         <div className="flash-sales-container">
           <div className="today">
-            <p className="today-left-border"></p><p>Today's</p>
+            <FontAwesomeIcon icon={faMapPin}/><p>Today's</p>
           </div>
           <div className="timer">
             <h1>Flash Sales</h1>
@@ -50,8 +50,13 @@ const Home = () => {
               <p><span className="reduce-time-size">Seconds</span> <span>56</span></p>
             </div>
             <div className="scroll">
-              <FontAwesomeIcon icon={faArrowLeft}/>
-              <FontAwesomeIcon icon={faArrowRight}/>
+              <div className="left-arrow"><FontAwesomeIcon  icon={faArrowLeft}/></div>
+              <div className="right-arrow"><FontAwesomeIcon icon={faArrowRight}/></div>
+            </div>
+          </div>
+          <div className="items-container">
+            <div className="item">
+              <div className="discount-area"><p>-40%</p><div className="seen"><FontAwesomeIcon icon={faHeart}/><FontAwesomeIcon icon={faEye}/></div></div>
             </div>
           </div>
         </div>
