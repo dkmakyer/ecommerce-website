@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight, faCaretRight, faEye, faHeart, faMapPin } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faCaretRight, faEye, faHeart, faMapPin, faStar } from "@fortawesome/free-solid-svg-icons";
 import images from "../../images";
 
 const Home = () => {
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         <div className="flash-sales-container">
           <div className="today">
-            <FontAwesomeIcon icon={faMapPin}/><p>Today's</p>
+            <FontAwesomeIcon style={{fontSize: "30px", marginRight: "10px"}}icon={faMapPin}/><p>Today's</p>
           </div>
           <div className="timer">
             <h1>Flash Sales</h1>
@@ -56,7 +56,26 @@ const Home = () => {
           </div>
           <div className="items-container">
             <div className="item">
-              <div className="discount-area"><p>-40%</p><div className="seen"><FontAwesomeIcon icon={faHeart}/><FontAwesomeIcon icon={faEye}/></div></div>
+              <div className="discount-area">
+                <p>-40%</p>
+                <div className="seen">
+                  <button  className="favorite"><FontAwesomeIcon className="favorite" icon={faHeart}/></button>
+                  <button  className="viewed"><FontAwesomeIcon className="viewed" icon={faEye}/></button>
+                </div>
+                <button className="add-item">Add to Cart</button>
+              </div>
+              <div className="item-info">
+                <h4>game pad</h4>
+                <p>$300 <span>$350</span></p>
+                <div className="stars">
+                  <FontAwesomeIcon className="star" icon={faStar}/>
+                  <FontAwesomeIcon className="star" icon={faStar}/>
+                  <FontAwesomeIcon className="star" icon={faStar}/>
+                  <FontAwesomeIcon className="star" icon={faStar}/>
+                  <FontAwesomeIcon className="star" icon={faStar}/>
+                  <p>(90)</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
