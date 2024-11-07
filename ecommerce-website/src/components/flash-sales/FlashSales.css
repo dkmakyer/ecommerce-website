@@ -1,0 +1,78 @@
+.flash-sales-container{
+    margin-top: 5rem;
+    border-bottom: 1px solid var(--bottom-border);
+}
+.items-container{
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    overflow: auto;
+    scrollbar-width: none;
+}
+.today{
+    color: var(--general-red);
+    width: 70px;
+}
+.today, .timer, .countdown, .countdown p, .scroll{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.timer{
+    margin: 0.1rem 0;
+}
+.countdown{
+    transform: translate(-7.5rem, 1rem);
+}
+.countdown p{
+    flex-direction: column;
+    margin-right: 30px;
+    font-size: 30px;
+}
+.reduce-time-size{
+    font-size: 10px;
+}
+.colon{
+    transform: translate(1.9rem, -2.4rem);
+    color: var(--general-red);
+}
+.countdown p:nth-of-type(4){
+    transform: translateY(-1.04rem);
+}
+.scroll{
+    width: 85px;
+}
+.left-arrow, .right-arrow{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(231, 230, 230, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.left-arrow:hover, .right-arrow:hover{
+    background-color: rgb(214, 214, 214);
+}
+.view-all-products-button{
+    width: 150px;
+    height: 40px;
+    background-color: var(--general-red);
+    color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    margin: 2rem 31rem 4rem 31rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.view-all-products-button:hover{
+    background-color: rgba(255, 0, 0, 0.5);
+    color: black;
+}

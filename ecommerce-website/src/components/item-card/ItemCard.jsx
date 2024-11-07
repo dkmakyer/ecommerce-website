@@ -1,7 +1,7 @@
 import React from "react";
 import "./ItemCard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight, faEye, faHeart, faMapPin, faStar } from "@fortawesome/free-solid-svg-icons";
+import {faEye, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ItemCard = () => {
   return (
