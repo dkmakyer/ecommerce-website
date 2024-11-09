@@ -1,7 +1,8 @@
 import React from "react";
 import "./Ads.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowRight,faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import {faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import MiniAd from "../mini-ad/MiniAd";
 
 const Ads = () => {
   return (
@@ -27,13 +28,7 @@ const Ads = () => {
           </ul>
         </div>
         <div className="ads-images">
-          <div className="ads-info">
-            <p>pepsi cola</p>
-            <h1>Up to 10% off Voucher</h1>
-            <button>
-              Shop Now <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          </div>
+          <MiniAd/>
         </div>
       </div>
     </>
