@@ -10,10 +10,10 @@ const ItemCard = () => {
           <div className="discount-area">
             <p>-40%</p>
             <div className="seen">
-              <button className="favorite">
+              <button className="favorite-button">
                 <FontAwesomeIcon className="favorite" icon={faHeart} />
               </button>
-              <button className="viewed">
+              <button className="viewed-button">
                 <FontAwesomeIcon className="viewed" icon={faEye} />
               </button>
             </div>

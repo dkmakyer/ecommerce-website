@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    min-height: 300px;
+    max-height: 300px;
+}
+.footer .subscription, .footer .support, .footer .account, .footer .policy-info, .footer .download-app, .footer .social-media{
+    display: flex;
+    align-items: first baseline;
+    flex-direction: column;
+    min-height: 200px;
+    max-width: 200px;
+    padding: 0 0 1rem 0;
+    justify-content: space-evenly;
+    font-weight: 100;
+}
+.footer .subscription input{
+    width: 185px;
+    color: rgb(255, 255, 255);
+}
+
+.footer .subscription-icon{
+    /* this is supposed yto be a submit button */
+    transform: translate(153px, -41px);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    width: 30px;
+    height: 30px;
+}
