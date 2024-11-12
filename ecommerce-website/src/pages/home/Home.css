@@ -10,7 +10,7 @@
 
 .reassurance{
     box-sizing: border-box;
-    transform: translateY(-37rem);
+    margin: 10rem 0;
 }
 .reassurance ul{
     display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./NewArrival.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const NewArrival = () => {
   return (
@@ -20,7 +20,7 @@ const NewArrival = () => {
         <div className="new-arrivals-items-container">
           <div className="item1">
             <div className="item-text">
-              <h3>pepsi cola</h3>
+              <h3>pepsi cola1</h3>
               <p>Up to 10% off Voucher</p>
               <button>
                 Shop Now <FontAwesomeIcon icon={faArrowRight} />
@@ -29,29 +29,31 @@ const NewArrival = () => {
           </div>
           <div className="item2">
             <div className="item-text">
-              <h3>pepsi cola</h3>
+              <h3>pepsi cola2</h3>
               <p>Up to 10% off Voucher</p>
               <button>
                 Shop Now <FontAwesomeIcon icon={faArrowRight} />
               </button>
             </div>
           </div>
-          <div className="item3">
-            <div className="item-text">
-              <h3>pepsi cola</h3>
-              <p>Up to 10% off Voucher</p>
-              <button>
-                Shop Now <FontAwesomeIcon icon={faArrowRight} />
-              </button>
+          <div className="item3and4">
+            <div className="item3">
+              <div className="item-text">
+                <h3>pepsi cola3</h3>
+                <p>Up to 10% off Voucher</p>
+                <button>
+                  Shop Now <FontAwesomeIcon icon={faArrowRight} />
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="item4">
-            <div className="item-text">
-              <h3>pepsi cola</h3>
-              <p>Up to 10% off Voucher</p>
-              <button>
-                Shop Now <FontAwesomeIcon icon={faArrowRight} />
-              </button>
+            <div className="item4">
+              <div className="item-text">
+                <h3>pepsi cola4</h3>
+                <p>Up to 10% off Voucher</p>
+                <button>
+                  Shop Now <FontAwesomeIcon icon={faArrowRight} />
+                </button>
+              </div>
             </div>
           </div>
         </div>

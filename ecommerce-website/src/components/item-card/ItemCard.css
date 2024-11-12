@@ -13,6 +13,7 @@
     height: 230px;
     overflow: hidden;
     color: rgb(255, 255, 255);
+    border-radius: 5px;
 }
 .discount-area::before{
     content: "";
@@ -42,7 +43,7 @@
     width: 20px;
     height: 20px;
     border: 1px solid rgb(255, 255, 255);
-    background-color: black;
+    background-color: rgb(126, 126, 126);
     border-radius: 50%;
     padding: 0.3rem;
 }
