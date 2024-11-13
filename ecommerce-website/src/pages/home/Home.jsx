@@ -7,43 +7,24 @@ import BestSelling from "../../components/best-selling/BestSelling";
 import SecondAd from "../../components/second-ad/SecondAd";
 import Products from "../../components/products/Products";
 import NewArrival from "../../components/new-arrival/NewArrival";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCarBurst,
-  faHeadset,
-  faShield,
-} from "@fortawesome/free-solid-svg-icons";
+import Reassurance from "../../components/reassurance/Reassurance";
+import useCountdown from "../../hooks/useCountdown";
 
 const Home = () => {
+  const initialTimer = {seconds: 60, minutes: 60, hours: 24, days: 31};
+  const timer = useCountdown(initialTimer);
+
   return (
     <>
       <div className="home-container">
         <Ads />
-        <FlashSales />
+        <FlashSales seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
         <Category />
         <BestSelling />
-        <SecondAd />
+        <SecondAd seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
         <Products />
         <NewArrival />
-        <div className="reassurance">
-          <ul>
-            <li>
-              <FontAwesomeIcon className="reassurance-icon" icon={faCarBurst} />
-              <h3>FREE AND FAST DELIVERY</h3>
-              <p>free delivery over all orders over $140</p>
-            </li>
-            <li>
-              <FontAwesomeIcon className="reassurance-icon" icon={faHeadset} />
-              <h3>24/7 CUSTOMER SERVICE</h3>
-              <p>Friendly 24/7 customer support</p>
-            </li>
-            <li>
-              <FontAwesomeIcon className="reassurance-icon" icon={faShield} />
-              <h3>MONEY BACK GUARANTEE</h3>
-              <p>We return money within 30 days</p>
-            </li>
-          </ul>
-        </div>
+        <Reassurance/>
       </div>
     </>
   );

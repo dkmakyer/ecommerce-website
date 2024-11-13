@@ -3,7 +3,7 @@ import "./SecondAd.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const SecondAd = () => {
+const SecondAd = ({seconds, minutes, hours, days}) => {
   return (
     <>
         <div className="second-ad">
@@ -11,20 +11,20 @@ const SecondAd = () => {
           <h1>Enhance Your Shopping Experience</h1>
           <div className="second-ad-countdown">
             <p>
-              <span className="countdown-number">03</span>
+            <span className="countdown-number">{days}</span>
               <span className="second-ad-reduce-time-size">Days</span>
               
             </p>
             <p>
-              <span className="countdown-number">23</span>
+              <span className="countdown-number">{hours}</span>
               <span className="second-ad-reduce-time-size">Hours</span>
             </p>
             <p>
-              <span className="countdown-number">19</span> 
+              <span className="countdown-number">{minutes}</span> 
               <span className="second-ad-reduce-time-size">Minutes</span>
             </p>
             <p>
-              <span className="countdown-number">56</span>
+            <span className="countdown-number">{seconds}</span>
               <span className="second-ad-reduce-time-size">Seconds</span>
             </p>
           </div>
