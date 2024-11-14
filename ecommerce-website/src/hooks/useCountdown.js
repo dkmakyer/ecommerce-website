@@ -8,7 +8,7 @@ const useCountdown = (initialTimer) => {
       setTimer((prev) => {
         let { seconds, minutes, hours, days } = prev;
 
-        if (seconds === 0) {
+        if (seconds === 1) {
           if (minutes > 0) {//when it reaches 0 or below 0 to prevent errors
             minutes--;
             seconds = 59;
