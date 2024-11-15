@@ -10,19 +10,20 @@ const ItemCard = ({title, image, price, rating}) => {
     backgroundImage : image ? `url(${image})` : "none",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    backgroundSize: "cover",
-    zIndex: 0,
+    backgroundSize: "contain",
+    zIndex: 1,
   }
   useEffect(()=>{
     const calculatedDiscount = Math.max(20, Math.floor(Math.random() * 40));
-    setDiscount(Number(calculatedDiscount));
-    setNewPrice(Math.max(0, price - calculatedDiscount));
+    const calculatedNewPrice = Math.max(20, price - calculatedDiscount);
+    setDiscount(parseFloat(calculatedDiscount.toFixed(2)));
+    setNewPrice(parseFloat(calculatedNewPrice.toFixed(2)));
   }, []);
   return (
     <>
-        <div className="item">
+        <div className="item" style={{marginRight: "50px"}}>
           <div className="discount-area" style={styleSpecs}>
-            <p>{discount}</p>
+            <p>-{discount}%</p>
             <div className="seen">
               <button className="favorite-button">
                 <FontAwesomeIcon className="favorite" icon={faHeart} />
@@ -36,7 +37,7 @@ const ItemCard = ({title, image, price, rating}) => {
           <div className="item-info">
             <h4>{title}</h4>
             <p style={{ color: "red" }}>
-              ${newPrice.toFixed(2)}
+              ${newPrice}
               <span
                 style={{
                   color: "grey",
