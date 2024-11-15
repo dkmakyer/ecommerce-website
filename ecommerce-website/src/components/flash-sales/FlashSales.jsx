@@ -1,4 +1,4 @@
-import React from "react";
+import {useContext, useEffect} from "react";
 import "./FlashSales.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,8 +7,21 @@ import {
   faMapPin,
 } from "@fortawesome/free-solid-svg-icons";
 import ItemCard from "../item-card/ItemCard";
+import { ProductContext } from "../../contexts/ProductContext";
 
 const FlashSales = ({seconds, minutes, hours, days}) => {
+  const {products, error} = useContext(ProductContext);
+  useEffect(()=> {
+    if(error){
+      console.log("Error during fetch "+ error.message)
+    }else{
+      console.log(products);
+    }
+  }, [products, error])
+  
+  const renderedItems = products.map((product) => {
+    return <ItemCard key={product.id} title={product.title} category={product.category} image={product.image} price={product.price} rating={product.rating.rate}/>
+  })
 
   return (
     <div className="flash-sales-container">
@@ -49,13 +62,7 @@ const FlashSales = ({seconds, minutes, hours, days}) => {
         </div>
       </div>
       <div className="items-container">
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+        {renderedItems}
       </div>
       <button className="view-all-products-button">View All Products</button>
     </div>
