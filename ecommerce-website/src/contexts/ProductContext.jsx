@@ -20,7 +20,7 @@ export const  ProductProvider = ({ children }) => {
         fetchProducts();
     }, []);
 
-    const value = useMemo(() => ({ products, error }), [products, error]); // Add error to context value if needed
+    const value = useMemo(() => ({ products, error }), [products, error]); 
 
     return (
         <ProductContext.Provider value={value}>

@@ -20,7 +20,7 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
   }, [products, error]);
 
   const renderedItems = products.map((product, i) => {
-    if (i <= 4) {
+    if (i <= 19) {
       return (
         <ItemCard
           key={product.id}
