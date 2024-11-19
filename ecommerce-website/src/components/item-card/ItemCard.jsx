@@ -23,7 +23,7 @@ const ItemCard = ({title, image, price, rating, onShowDiscount}) => {
   };
   
 
-
+//implement code to make the discount consistent and never change instead of making it random, and create a context that displays the discount or not
   useEffect(()=>{
     const calculatedDiscount = Math.max(20, Math.floor(Math.random() * 40));
     const calculatedNewPrice = Math.max(20, price - calculatedDiscount);
