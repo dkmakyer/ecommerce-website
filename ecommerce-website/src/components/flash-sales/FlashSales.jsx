@@ -9,7 +9,7 @@ import {
 import ItemCard from "../item-card/ItemCard";
 import { ProductContext } from "../../contexts/ProductContext";
 
-const FlashSales = ({ seconds, minutes, hours, days }) => {
+const FlashSales = ({ seconds, minutes, hours, days, onShowDiscount }) => {
   const { products, error } = useContext(ProductContext);
   useEffect(() => {
     if (error) {
@@ -19,8 +19,7 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
     }
   }, [products, error]);
 
-  const renderedItems = products.map((product, i) => {
-    if (i <= 19) {
+  const renderedItems = products.slice(0,6).map((product, i) => {
       return (
         <ItemCard
           key={product.id}
@@ -29,9 +28,9 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
           image={product.image}
           price={product.price}
           rating={product.rating.rate}
+          onShowDiscount={onShowDiscount}
         />
       );
-    }
   });
 
   return (

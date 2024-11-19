@@ -3,16 +3,27 @@ import "./ItemCard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faEye, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 
-const ItemCard = ({title, image, price, rating}) => {
+const ItemCard = ({title, image, price, rating, onShowDiscount}) => {
   const [discount, setDiscount] =  useState(0);
   const [newPrice, setNewPrice] = useState(price);
-  const styleSpecs = {
+  const [hovered, setHovered] = useState(false);
+
+  
+  const baseStyle = {
     backgroundImage : image ? `url(${image})` : "none",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "contain",
+    width: "120px",
     zIndex: 1,
+    transition: "all 0.3s ease"
   }
+  const enlargedItem = {
+    ...baseStyle, width: "160px"
+  };
+  
+
+
   useEffect(()=>{
     const calculatedDiscount = Math.max(20, Math.floor(Math.random() * 40));
     const calculatedNewPrice = Math.max(20, price - calculatedDiscount);
@@ -21,9 +32,9 @@ const ItemCard = ({title, image, price, rating}) => {
   }, []);
   return (
     <>
-        <div className="item" style={{marginRight: "50px"}}>
-          <div className="discount-area" style={styleSpecs}>
-            <p>-{discount}%</p>
+        <div className="item" style={{marginRight: "50px", marginBottom: "100px"}}>
+          <div className="discount-area" style={hovered ? enlargedItem : baseStyle} onMouseOver={() => setHovered(true)} onMouseOut={() => setHovered(false)}>
+            {onShowDiscount && <p>-{discount}%</p>}
             <div className="seen">
               <button className="favorite-button">
                 <FontAwesomeIcon className="favorite" icon={faHeart} />
