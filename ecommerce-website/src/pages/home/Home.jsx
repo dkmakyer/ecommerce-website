@@ -15,21 +15,15 @@ const Home = () => {
   const initialTimer = {seconds: 60, minutes: 60, hours: 24, days: 31};
   const timer = useCountdown(initialTimer);
 
-  const [displayDiscount, setDisplayDiscount] = React.useState(null);
-  
-  function showDiscount(input){
-    setDisplayDiscount(input);
-  }
-
   return (
     <>
       <div className="home-container">
         <Ads />
-        <FlashSales  onShowDiscount={() => showDiscount(true)} seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
+        <FlashSales   seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
         <Category />
-        <BestSelling onShowDiscount={() => showDiscount(false)} />
+        <BestSelling />
         <SecondAd  seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
-        <Products onShowDiscount={() => showDiscount(false)}/>
+        <Products />
         <NewArrival />
         <Reassurance/>
       </div>

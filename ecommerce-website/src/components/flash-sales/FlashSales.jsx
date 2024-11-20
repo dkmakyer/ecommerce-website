@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./FlashSales.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,8 +9,10 @@ import {
 import ItemCard from "../item-card/ItemCard";
 import { ProductContext } from "../../contexts/ProductContext";
 
-const FlashSales = ({ seconds, minutes, hours, days, onShowDiscount }) => {
+const FlashSales = ({ seconds, minutes, hours, days }) => {
+  const [discount, setDiscount] = useState(true);
   const { products, error } = useContext(ProductContext);
+  
   useEffect(() => {
     if (error) {
       console.log("Error during fetch " + error.message);
@@ -28,7 +30,7 @@ const FlashSales = ({ seconds, minutes, hours, days, onShowDiscount }) => {
           image={product.image}
           price={product.price}
           rating={product.rating.rate}
-          onShowDiscount={onShowDiscount}
+          hasDiscount={discount}
         />
       );
   });

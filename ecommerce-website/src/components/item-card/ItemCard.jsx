@@ -3,7 +3,7 @@ import "./ItemCard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faEye, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 
-const ItemCard = ({title, image, price, rating, onShowDiscount}) => {
+const ItemCard = ({title, image, price, rating, hasDiscount}) => {
   const [discount, setDiscount] =  useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
@@ -32,18 +32,18 @@ const ItemCard = ({title, image, price, rating, onShowDiscount}) => {
   }, []);
   return (
     <>
-        <div className="item" style={{marginRight: "50px", marginBottom: "100px"}}>
-          <div className="discount-area" style={hovered ? enlargedItem : baseStyle} onMouseOver={() => setHovered(true)} onMouseOut={() => setHovered(false)}>
-            {onShowDiscount && <p>-{discount}%</p>}
-            <div className="seen">
+        <div className="item" style={{marginRight: "50px", marginBottom: "100px"}} onMouseOver={() => setHovered(true)} onMouseOut={() => setHovered(false)}>
+          <div className="discount-area" style={hovered ? enlargedItem : baseStyle} >
+            {hasDiscount && <p>-{discount}%</p>}
+            {hovered &&             <div className="seen">
               <button className="favorite-button">
                 <FontAwesomeIcon className="favorite" icon={faHeart} />
               </button>
               <button className="viewed-button">
                 <FontAwesomeIcon className="viewed" icon={faEye} />
               </button>
-            </div>
-            <button className="add-item">Add to Cart</button>
+            </div>}
+            {hovered && <button className="add-item">Add to Cart</button>}
           </div>
           <div className="item-info">
             <h4>{title}</h4>
