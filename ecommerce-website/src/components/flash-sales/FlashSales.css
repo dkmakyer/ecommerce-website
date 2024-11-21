@@ -12,6 +12,7 @@
     gap: 2rem;
     overflow: auto;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 .today{
     color: var(--general-red);
