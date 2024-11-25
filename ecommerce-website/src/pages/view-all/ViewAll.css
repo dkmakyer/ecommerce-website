@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.view-all-container{
+    padding: 1.5rem 7rem;
+}
+.view-all-items-container{
+    box-sizing: border-box;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6rem;
+    scroll-behavior: smooth;
+}
