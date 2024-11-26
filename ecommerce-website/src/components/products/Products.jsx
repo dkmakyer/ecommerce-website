@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ItemCard from "../item-card/ItemCard";
 import { ProductContext } from "../../contexts/ProductContext";
+import ViewAllButton from "../view-all-button/ViewAllButton";
 
 const Products = ({ onShowDiscount }) => {
   const [scroll, setScroll] = useState({ start: 11, end: 19 });
@@ -84,7 +85,9 @@ const Products = ({ onShowDiscount }) => {
           </div>
         </div>
         <div className="our-products-items-container">{displayProducts}</div>
-        <button className="our-products-button">View All Products</button>
+          <div className="our-products-button">
+            <ViewAllButton/>
+          </div>
       </div>
     </>
   );

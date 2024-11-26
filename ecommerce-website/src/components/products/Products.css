@@ -16,7 +16,7 @@
     flex-direction: row;
     margin: 0.5rem 0 2rem 0;
 }
-.our-products-button{
+/* .our-products-button{
     width: 120px;
     height: 40px;
     background-color: var(--general-red);
@@ -31,6 +31,10 @@
 .our-products-button:hover{
     background-color: rgba(255, 0, 0, 0.5);
     color: black;
+} */
+
+.our-products-button{
+    margin: 2rem 31rem;
 }
 .our-products-items-container{
     box-sizing: border-box;

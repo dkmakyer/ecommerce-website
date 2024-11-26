@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ItemCard from "../item-card/ItemCard";
 import { ProductContext } from "../../contexts/ProductContext";
+import ViewAllButton from "../view-all-button/ViewAllButton";
 
 const FlashSales = ({ seconds, minutes, hours, days }) => {
   const [discount] = useState(true);
@@ -102,7 +103,9 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
         </div>
       </div>
       <div className="items-container">{renderedItems}</div>
-      <button className="view-all-products-button">View All Products</button>
+      <div className="view-all-products-button">
+        <ViewAllButton/>
+      </div>
     </div>
   );
 };

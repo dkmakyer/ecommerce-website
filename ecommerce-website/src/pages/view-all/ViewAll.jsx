@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, useMemo } from 'react'
 import "./ViewAll.css"
 import { ProductContext } from '../../contexts/ProductContext';
 import ItemCard from '../../components/item-card/ItemCard';
+import BackButton from '../../components/back-button/BackButton';
 
 
 const ViewAll = () => {
@@ -61,10 +62,13 @@ const ViewAll = () => {
           </div>
         </div>
       ));
-      
+
   return (
     <>
       <div className="view-all-container">
+        <div className="view-all-back-button">
+            <BackButton/>
+        </div>
         <div className="view-all-items-container">
             {renderedItems}
         </div>

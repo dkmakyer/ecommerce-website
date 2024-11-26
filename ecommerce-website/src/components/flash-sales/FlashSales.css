@@ -62,19 +62,6 @@
     background-color: rgb(214, 214, 214);
 }
 .view-all-products-button{
-    width: 150px;
-    height: 40px;
-    background-color: var(--general-red);
-    color: rgb(255, 255, 255);
-    border: 0;
-    border-radius: 5px;
-    outline: 0;
-    margin: 2rem 31rem 0.5rem 31rem;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
+    margin: 0 31rem;
     transform: translateY(-80px);
-}
-.view-all-products-button:hover{
-    background-color: rgba(255, 0, 0, 0.5);
-    color: black;
 }

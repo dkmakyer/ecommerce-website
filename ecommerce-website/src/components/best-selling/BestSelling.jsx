@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import ItemCard from '../item-card/ItemCard';
 import { ProductContext } from '../../contexts/ProductContext';
+import ViewAllButton from '../view-all-button/ViewAllButton';
 
 const BestSelling = () => {
   const [discount, setDiscount] = useState(false);
@@ -44,10 +45,8 @@ const BestSelling = () => {
           </div>
           <div className="best-selling-navigation">
             <h1>Best Selling Products</h1>
-            <div className="best-selling-view-all">
-              <button className="best-selling-view-all-button">
-                View All
-              </button>
+            <div className="best-selling-button">
+              <ViewAllButton/>
             </div>
           </div> 
           <div className="best-selling-items-container">
