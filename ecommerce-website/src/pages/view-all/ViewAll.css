@@ -9,14 +9,25 @@
 }
 .view-all-items-container{
     margin-top: 90px;
-    box-sizing: border-box;
-    max-width: 100%;
+}
+.category-section{
+    margin-bottom: 2rem;
+}
+.category-header{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+.category-items{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6rem;
-    scroll-behavior: smooth;
+    gap: 2rem;
+    padding: 2rem;
+    padding-left: 100px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
 }
-
 .view-all-back-button{
     position: absolute;
     right: 100px;

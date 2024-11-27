@@ -19,7 +19,8 @@ const Products = ({ onShowDiscount }) => {
     if (error) {
       console.log("Error during fetch " + error.message);
     } else {
-      console.log(products);
+      // console.log(products);
+      null;
     }
   }, [products, error]);
 

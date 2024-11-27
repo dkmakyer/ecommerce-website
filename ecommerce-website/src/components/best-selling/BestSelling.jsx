@@ -7,14 +7,12 @@ import { ProductContext } from '../../contexts/ProductContext';
 import ViewAllButton from '../view-all-button/ViewAllButton';
 
 const BestSelling = () => {
-  const [discount, setDiscount] = useState(false);
+  const [discount] = useState(false);
   const { products, error } = useContext(ProductContext);
 
   useEffect(() => {
     if (error) {
       console.log("Error during fetch " + error.message);
-    } else {
-      setDiscount(false);
     }
   }, [products, error, discount]);
 

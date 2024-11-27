@@ -1,6 +1,8 @@
 .flash-sales-container{
     margin-top: 5rem;
     border-bottom: 1px solid var(--bottom-border);
+    background-color: #f9f9f9;
+    padding: 2rem;
 }
 .items-container{
     box-sizing: border-box;

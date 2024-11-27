@@ -1,80 +1,66 @@
-import { useContext, useEffect, useState, useMemo } from 'react'
-import "./ViewAll.css"
-import { ProductContext } from '../../contexts/ProductContext';
-import ItemCard from '../../components/item-card/ItemCard';
-import BackButton from '../../components/back-button/BackButton';
-
+import { useContext, useEffect, useState, useMemo } from "react";
+import "./ViewAll.css";
+import { ProductContext } from "../../contexts/ProductContext";
+import ItemCard from "../../components/item-card/ItemCard";
+import BackButton from "../../components/back-button/BackButton";
 
 const ViewAll = () => {
-    const {products, error} = useContext(ProductContext);
-    const [discount] = useState(false);
+  const { products, error } = useContext(ProductContext);
+  const [discount] = useState(false);
 
-    useEffect(() => {
-        if (error) {
-          console.log("Error during fetch " + error.message);
-        } else {
-          console.log(products);
-        }
-    }, [products, error]);
+  useEffect(() => {
+    if (error) {
+      console.log("Error during fetch " + error.message);
+    } else {
+      console.log("Product fetched successfully ", products);
+    }
+  }, [products, error]);
 
-    const groupedItems = useMemo(() => {
-        return products.reduce((acc, product) => {
-          if (!acc[product.category]) {
-            acc[product.category] = [];
-          }
-          acc[product.category].push(product);
-          return acc;
-        }, {});
-      }, [products]);
-      
-      const renderedItems = Object.entries(groupedItems).map(([category, items]) => (
-        <div key={category} style={{ marginBottom: "40px" }}>
-          {/* Category Heading */}
-          <h2 style={{ marginBottom: "10px" }}>{category}</h2>
-      
-          {/* Items Section */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px",
-              justifyContent: "space-between", // Ensure items spread across the row
-            }}
-          >
-            {items.map((product) => (
-              <div
-                key={product.id}
-                style={{
-                  flex: "1 0 calc(25% - 10px)", // 25% width with gap adjustment
-                  boxSizing: "border-box", // Prevent overflow
-                }}
-              >
+  function displayAllItems() {
+    if (!products) return <p>Loading...</p>;
+
+    const productObject = {};
+    products.forEach((product) => {
+      if (!productObject[product.category]) {
+        productObject[product.category] = [];
+      }
+      productObject[product.category].push(product);
+    });
+
+    return Object.entries(productObject).map(([category, productList]) => {
+      return (
+        <div className="category-section" key={category}>
+          <h2 className="category-header">{category}</h2>
+          <div className="category-items">
+            {productList.map((item) => {
+              return (
                 <ItemCard
-                  title={product.title}
-                  category={product.category}
-                  image={product.image}
-                  price={product.price}
-                  rating={product.rating.rate}
+                  key={item.id}
+                  title={item.title}
+                  category={item.category}
+                  image={item.image}
+                  price={item.price}
+                  rating={item.rating.rate}
                   hasDiscount={discount}
                 />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
-      ));
+      );
+    });
+  }
 
   return (
     <>
       <div className="view-all-container">
         <div className="view-all-back-button">
-            <BackButton/>
+          <BackButton />
         </div>
-        <div className="view-all-items-container">
-            {renderedItems}
-        </div>
+        <div className="view-all-items-container">{displayAllItems()}</div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ViewAll
+export default ViewAll;

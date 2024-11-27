@@ -19,8 +19,6 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
   useEffect(() => {
     if (error) {
       console.log("Error during fetch " + error.message);
-    } else {
-      console.log(products);
     }
   }, [products, error]);
 

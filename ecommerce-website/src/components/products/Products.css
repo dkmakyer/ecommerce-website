@@ -1,5 +1,7 @@
 .our-products-container{
-    margin-top: 5rem;
+    margin-top: 5rem;  
+    background-color: #f9f9f9;
+    padding: 2rem;
 }
 .our-products-heading{
     color: var(--general-red);
@@ -16,22 +18,6 @@
     flex-direction: row;
     margin: 0.5rem 0 2rem 0;
 }
-/* .our-products-button{
-    width: 120px;
-    height: 40px;
-    background-color: var(--general-red);
-    color: rgb(255, 255, 255);
-    border: 0;
-    border-radius: 5px;
-    outline: 0;
-    margin: 2rem 31rem 4rem 31rem;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-}
-.our-products-button:hover{
-    background-color: rgba(255, 0, 0, 0.5);
-    color: black;
-} */
 
 .our-products-button{
     margin: 2rem 31rem;
@@ -41,6 +27,6 @@
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6rem;
+    gap: 3.5rem;
     scroll-behavior: smooth;
 }
