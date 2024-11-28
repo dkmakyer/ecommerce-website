@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./ItemCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
   const [discount, setDiscount] = useState(0);
@@ -31,53 +32,55 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
   }, []);
   return (
     <>
-      <div
-        className="item"
-        style={{ marginRight: "50px", marginBottom: "100px" }}
-        onMouseOver={() => setHovered(true)}
-        onMouseOut={() => setHovered(false)}
-      >
+      <Link to="/Item-detail" state={{item: {title, image, price, rating, hasDiscount}}}>
         <div
-          className="discount-area"
-          style={hovered ? enlargedItem : baseStyle}
+          className="item"
+          style={{ marginRight: "50px", marginBottom: "100px" }}
+          onMouseOver={() => setHovered(true)}
+          onMouseOut={() => setHovered(false)}
         >
-          {hasDiscount && <p>-{discount}%</p>}
-          {hovered && (
-            <div className="seen">
-              <button className="favorite-button">
-                <FontAwesomeIcon className="favorite" icon={faHeart} />
-              </button>
-              <button className="viewed-button">
-                <FontAwesomeIcon className="viewed" icon={faEye} />
-              </button>
+          <div
+            className="discount-area"
+            style={hovered ? enlargedItem : baseStyle}
+          >
+            {hasDiscount && <p>-{discount}%</p>}
+            {hovered && (
+              <div className="seen">
+                <button className="favorite-button">
+                  <FontAwesomeIcon className="favorite" icon={faHeart} />
+                </button>
+                <button className="viewed-button">
+                  <FontAwesomeIcon className="viewed" icon={faEye} />
+                </button>
+              </div>
+            )}
+            {hovered && <button className="add-item">Add to Cart</button>}
+          </div>
+          <div className="item-info">
+            <h4>{title}</h4>
+            <p style={{ color: "red" }}>
+              ${newPrice}
+              <span
+                style={{
+                  color: "grey",
+                  textDecoration: "line-through",
+                  marginLeft: "10px",
+                }}
+              >
+                ${price}
+              </span>
+            </p>
+            <div className="stars">
+              <FontAwesomeIcon className="star" icon={faStar} />
+              <FontAwesomeIcon className="star" icon={faStar} />
+              <FontAwesomeIcon className="star" icon={faStar} />
+              <FontAwesomeIcon className="star" icon={faStar} />
+              <FontAwesomeIcon className="star" icon={faStar} />
+              <p style={{ color: "grey" }}>({rating})</p>
             </div>
-          )}
-          {hovered && <button className="add-item">Add to Cart</button>}
-        </div>
-        <div className="item-info">
-          <h4>{title}</h4>
-          <p style={{ color: "red" }}>
-            ${newPrice}
-            <span
-              style={{
-                color: "grey",
-                textDecoration: "line-through",
-                marginLeft: "10px",
-              }}
-            >
-              ${price}
-            </span>
-          </p>
-          <div className="stars">
-            <FontAwesomeIcon className="star" icon={faStar} />
-            <FontAwesomeIcon className="star" icon={faStar} />
-            <FontAwesomeIcon className="star" icon={faStar} />
-            <FontAwesomeIcon className="star" icon={faStar} />
-            <FontAwesomeIcon className="star" icon={faStar} />
-            <p style={{ color: "grey" }}>({rating})</p>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

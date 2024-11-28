@@ -9,6 +9,7 @@ import SignUp from './pages/Sign-up/Sign-up'
 import LogIn from './pages/log-in/LogIn'
 import Footer from './components/footer/Footer'
 import ViewAll from './pages/view-all/ViewAll'
+import ItemDetails from './pages/item-details/ItemDetails'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/Sign-up' element={<SignUp/>}/>
           <Route path='/Log-in' element={<LogIn/>}/>
           <Route path='/View-all' element={<ViewAll/>}/>
+          <Route path='/Item-detail' element={<ItemDetails/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
