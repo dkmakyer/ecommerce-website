@@ -1,7 +1,7 @@
 import React from 'react'
 import "./App.css"
 import Header from './components/header/Header'
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {HashRouter as BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
@@ -18,8 +18,8 @@ const App = () => {
         <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/Contact' element={<About/>}/>
-          <Route path='/About' element={<Contact/>}/>
+          <Route path='/About' element={<About/>}/>
+          <Route path='/Contact ' element={<Contact/>}/>
           <Route path='/Sign-up' element={<SignUp/>}/>
           <Route path='/Log-in' element={<LogIn/>}/>
           <Route path='/View-all' element={<ViewAll/>}/>
