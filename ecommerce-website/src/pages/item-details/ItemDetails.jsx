@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ItemDetails.css";
 import BackButton from "../../components/back-button/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,22 @@ import {
 import { useLocation } from "react-router-dom";
 
 const ItemDetails = () => {
+  const [itemCount, setItemCount] =useState(0);
+
+  function handleCount(e){
+    const {className} = e.currentTarget;
+    switch(className){
+      case "subtract-item":
+        setItemCount(prev => Math.max(prev - 1, 0));
+        break;
+      case "add-item":
+        setItemCount(prev => prev + 1);
+        break;
+      default:
+        return itemCount;
+    }
+  }
+
   const { state } = useLocation();
   const item = state?.item;
   if (!item) {
@@ -23,8 +39,8 @@ const ItemDetails = () => {
           <BackButton />
         </div>
         <div className="item-detail">
-          <div className="item-detail-image">
-            <img src={item.image} alt="item-image" />
+          <div >
+            <img className="item-detail-image"src={item.image} alt="item-image" />
           </div>
           <div className="item-detail-info">
             <h2>{item.title}</h2>
@@ -34,38 +50,37 @@ const ItemDetails = () => {
               <FontAwesomeIcon className="star" icon={faStar} />
               <FontAwesomeIcon className="star" icon={faStar} />
               <FontAwesomeIcon className="star" icon={faStar} />
+              <p className="review-container">
+                (150 Reviews) | <span>In stock</span>
+              </p>
             </div>
-            <p>
-              (150 Reviews) | <span>In stock</span>
-            </p>
-            <h3>{item.price}</h3>
-            <p>{item.rating}</p>
+            <h3>${parseFloat(item.price).toFixed(2)}</h3>
             <div className="buttons">
               <div className="item-count">
-                <button>-</button>
-                <p>item count</p>
-                <button>+</button>
+                <button className="subtract-item" onClick={handleCount}><h1>-</h1></button>
+                  <p>{itemCount}</p>
+                <button className="add-item" onClick={handleCount}>+</button>
               </div>
-              <button>Buy Now</button>
+              <button className="buy-button">Buy Now</button>
               <button className="item-detail-favorite">
                 <FontAwesomeIcon icon={faHeart} />
               </button>
             </div>
             <div className="delivery-buttons">
-              <buttons>
-                <FontAwesomeIcon icon={faVanShuttle} />
+              <button>
+                <FontAwesomeIcon className="delivery-button-fa-icon" icon={faVanShuttle} />
                 <div className="delivery-button-info">
                   <h3>Free Delivery</h3>
                   <p>Enter your postal code for Delivery Availability</p>
                 </div>
-              </buttons>
-              <buttons>
-                <FontAwesomeIcon icon={faRecycle} />
+              </button>
+              <button>
+                <FontAwesomeIcon className="delivery-button-fa-icon" icon={faRecycle} />
                 <div className="delivery-button-info">
                   <h3>Return Delivery</h3>
-                  <p>Free 30 Days Delivery Returns. Details</p>
+                  <p className="free-delivery-info">Free 30 Days Delivery Returns. Details</p>
                 </div>
-              </buttons>
+              </button>
             </div>
           </div>
         </div>
