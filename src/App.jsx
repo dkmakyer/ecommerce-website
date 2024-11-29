@@ -5,7 +5,7 @@ import {HashRouter as BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
-import SignUp from './pages/Sign-up/Sign-up'
+import SignUp from './pages/sign-up/Sign-up'
 import LogIn from './pages/log-in/LogIn'
 import Footer from './components/footer/Footer'
 import ViewAll from './pages/view-all/ViewAll'
