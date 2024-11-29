@@ -32,7 +32,7 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
   }, []);
   return (
     <>
-      <Link to="/Item-detail" state={{item: {title, image, price, rating, hasDiscount}}}>
+      <Link to="/Item-details" state={{item: {title, image, price, rating, hasDiscount}}}>
         <div
           className="item"
           style={{ marginRight: "50px", marginBottom: "100px" }}
