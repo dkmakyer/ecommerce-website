@@ -19,11 +19,11 @@
     align-items: flex-start;
     flex-direction: column;
     height: 40px;
-    transform: translateX(8.3rem);
+    transform: translate(8.3rem, 0.5rem);
     position: absolute;
     z-index: 1;
 }
-.favorite, .viewed{
+.favorite{
     color: rgb(255, 255, 255);
     width: 15px;
     height: 15px;
@@ -33,12 +33,14 @@
     padding: 0.3rem;
     cursor: pointer;
 }
-.favorite-button, .viewed-button{
+.favorite:active{
+    background-color: rgb(255, 134, 219);
+}
+.favorite-button{
     border: 0;
     outline: 0;
     background-color: transparent;
     margin-bottom: 3px;
-
 }
 .discount-area p{
     color: white;

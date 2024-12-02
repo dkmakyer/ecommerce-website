@@ -1,7 +1,7 @@
 import React from 'react'
 import "./App.css"
 import Header from './components/header/Header'
-import {HashRouter as BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'

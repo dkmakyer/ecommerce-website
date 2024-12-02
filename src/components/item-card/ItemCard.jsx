@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./ItemCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { FavoritesContext } from "../../contexts/FavoritesContext";
 
 const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
+  const {updateFavorite} = useContext(FavoritesContext);
   const [discount, setDiscount] = useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const baseStyle = {
     backgroundImage: image ? `url(${image})` : "none",
@@ -22,6 +25,16 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
     ...baseStyle,
     width: "160px",
   };
+  const changeBackground = {
+    backgroundColor: "red"
+  };
+
+  function handleFavoritesClick(e){
+    e.stopPropagation();//makes sure the Link doesn't listen to the click and route to the view-all page
+    e.preventDefault();//makes sure the the default routing behavior brought by the Link tag doesn't happen
+    updateFavorite({ title, image, price, rating, hasDiscount });
+    setIsClicked(prev => !prev);
+  }
 
   //implement code to make the discount consistent and never change instead of making it random, and create a context that displays the discount or not
   useEffect(() => {
@@ -46,11 +59,8 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
             {hasDiscount && <p>-{discount}%</p>}
             {hovered && (
               <div className="seen">
-                <button className="favorite-button">
-                  <FontAwesomeIcon className="favorite" icon={faHeart} />
-                </button>
-                <button className="viewed-button">
-                  <FontAwesomeIcon className="viewed" icon={faEye} />
+                <button className="favorite-button" onClick={handleFavoritesClick}>
+                  <FontAwesomeIcon className={isClicked ? changeBackground : null} icon={faHeart} />
                 </button>
               </div>
             )}
