@@ -35,8 +35,8 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
 
   //implement code to make the discount consistent and never change instead of making it random, and create a context that displays the discount or not
   useEffect(() => {
-    const calculatedDiscount = hasDiscount ?  Math.max(20, Math.floor(Math.random() * 40)) : 0;
-    const calculatedNewPrice = hasDiscount ?  Math.max(20, price - calculatedDiscount) : price;
+    const calculatedDiscount =Math.max(20, Math.floor(Math.random() * 40));
+    const calculatedNewPrice =Math.max(20, price - calculatedDiscount);
     setDiscount(parseFloat(calculatedDiscount.toFixed(2)));
     setNewPrice(parseFloat(calculatedNewPrice.toFixed(2)));
   }, []);
@@ -86,7 +86,7 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
           <div className="item-info">
             <h4>{title}</h4>
             <p style={{ color: "red" }}>
-              ${newPrice}
+              ${parseFloat(newPrice).toFixed(2)}
               <span
                 style={{
                   color: "grey",
@@ -94,7 +94,7 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
                   marginLeft: "10px",
                 }}
               >
-                ${price}
+                {hasDiscount && `$${parseInt(parseFloat(price)).toFixed(2)}`}
               </span>
             </p>
             <div className="stars">

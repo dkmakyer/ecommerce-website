@@ -14,6 +14,7 @@ const Products = ({ onShowDiscount }) => {
   const [scroll, setScroll] = useState({ start: 11, end: 19 });
   const [isScrolling, setIsScrolling] = useState(false);
   const { products, error } = useContext(ProductContext);
+  const [discount] = useState(false);
 
   useEffect(() => {
     if (error) {
@@ -59,7 +60,7 @@ const Products = ({ onShowDiscount }) => {
         image={product.image}
         price={product.price}
         rating={product.rating.rate}
-        onShowDiscount={onShowDiscount}
+        hasDiscount={discount}
       />
     );
   });
