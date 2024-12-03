@@ -23,19 +23,6 @@
     position: absolute;
     z-index: 1;
 }
-.favorite{
-    color: rgb(255, 255, 255);
-    width: 15px;
-    height: 15px;
-    border: 1px solid rgb(255, 134, 219);
-    background-color: rgb(209, 209, 209);
-    border-radius: 50%;
-    padding: 0.3rem;
-    cursor: pointer;
-}
-.favorite:active{
-    background-color: rgb(255, 134, 219);
-}
 .favorite-button{
     border: 0;
     outline: 0;

@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import "./ItemCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
 
 const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
-  const {updateFavorite} = useContext(FavoritesContext);
+  const { updateFavorites } = useContext(FavoritesContext);
   const [discount, setDiscount] = useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
@@ -25,27 +25,27 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
     ...baseStyle,
     width: "160px",
   };
-  const changeBackground = {
-    backgroundColor: "red"
-  };
 
-  function handleFavoritesClick(e){
-    e.stopPropagation();//makes sure the Link doesn't listen to the click and route to the view-all page
-    e.preventDefault();//makes sure the the default routing behavior brought by the Link tag doesn't happen
-    updateFavorite({ title, image, price, rating, hasDiscount });
-    setIsClicked(prev => !prev);
+  const handleFavoritesClick = (e) => {
+    e.stopPropagation(); //makes sure the Link doesn't listen to the click and route to the view-all page
+    e.preventDefault(); //makes sure the the default routing behavior brought by the Link tag doesn't happen
+    updateFavorites({ title, image, price, rating, hasDiscount });
+    setIsClicked((prev) => !prev);
   }
 
   //implement code to make the discount consistent and never change instead of making it random, and create a context that displays the discount or not
   useEffect(() => {
-    const calculatedDiscount = Math.max(20, Math.floor(Math.random() * 40));
-    const calculatedNewPrice = Math.max(20, price - calculatedDiscount);
+    const calculatedDiscount = hasDiscount ?  Math.max(20, Math.floor(Math.random() * 40)) : 0;
+    const calculatedNewPrice = hasDiscount ?  Math.max(20, price - calculatedDiscount) : price;
     setDiscount(parseFloat(calculatedDiscount.toFixed(2)));
     setNewPrice(parseFloat(calculatedNewPrice.toFixed(2)));
   }, []);
   return (
     <>
-      <Link to="/Item-details" state={{item: {title, image, price, rating, hasDiscount}}}>
+      <Link
+        to="/Item-details"
+        state={{ item: { title, image, price, rating, hasDiscount } }}
+      >
         <div
           className="item"
           style={{ marginRight: "50px", marginBottom: "100px" }}
@@ -59,8 +59,25 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
             {hasDiscount && <p>-{discount}%</p>}
             {hovered && (
               <div className="seen">
-                <button className="favorite-button" onClick={handleFavoritesClick}>
-                  <FontAwesomeIcon className={isClicked ? changeBackground : null} icon={faHeart} />
+                <button
+                  className="favorite-button"
+                  onClick={handleFavoritesClick}
+                >
+                  <FontAwesomeIcon
+                    style={{
+                      color: "rgb(255, 255, 255)",
+                      width: "15px",
+                      height: "15px",
+                      border: "1px solid rgb(255, 134, 219)",
+                      backgroundColor: isClicked
+                        ? "rgb(255, 134, 219)"
+                        : "rgb(209, 209, 209)",
+                      borderRadius: "50%",
+                      padding: "0.3rem",
+                      cursor: "pointer",
+                    }}
+                    icon={faHeart}
+                  />
                 </button>
               </div>
             )}
