@@ -10,6 +10,7 @@ import LogIn from './pages/log-in/LogIn'
 import Footer from './components/footer/Footer'
 import ViewAll from './pages/view-all/ViewAll'
 import ItemDetails from './pages/item-details/ItemDetails'
+import WishList from './pages/wish-list/WishList'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/Log-in' element={<LogIn/>}/>
           <Route path='/View-all' element={<ViewAll/>}/>
           <Route path='/Item-details' element={<ItemDetails/>}/>
+          <Route path='/Wishlist' element={<WishList/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

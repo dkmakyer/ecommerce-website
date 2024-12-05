@@ -8,9 +8,12 @@ export const FavoritesContextProvider = ({ children }) => {
   const updateFavorites = (item) => {
     setFavorites((prev) => ([ ...prev, item ]));
   }
+  const removeFavorites = (title) => {
+    setFavorites((prev) => (prev.filter(item => item.title !== title)));
+  }
   return (
     <FavoritesContext.Provider
-      value={{ updateFavorites, favorites}}
+      value={{ updateFavorites, favorites, removeFavorites}}
     >
       {children}
     </FavoritesContext.Provider>

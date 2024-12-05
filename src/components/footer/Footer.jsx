@@ -1,22 +1,11 @@
 import React from "react";
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowAltCircleRight,
-  faCarBurst,
-  faHeadset,
-  faShield,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faTwitter,
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faAppStore,
-  faGooglePlay,
-  faApple,
-} from "@fortawesome/free-brands-svg-icons";
+import {faArrowAltCircleRight} from "@fortawesome/free-solid-svg-icons";
+import {faTwitter,faFacebook,faInstagram,faLinkedin,faApple} from "@fortawesome/free-brands-svg-icons";
+
 import images from "../../images.js";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const { googlePlay } = images;
   return (
@@ -46,7 +35,7 @@ const Footer = () => {
           <p>My Account</p>
           <p>Login / Register</p>
           <p>Cart</p>
-          <p>WishList</p>
+          <Link to="/Wishlist"><button style={{backgroundColor: "transparent", color: "white", width: "50px", border: "none"}}>WishList</button></Link>
           <p>Shop</p>
         </div>
         <div className="policy-info">

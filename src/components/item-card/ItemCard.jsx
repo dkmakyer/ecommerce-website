@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import "./ItemCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCross, faHeart, faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
 
-const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
-  const { updateFavorites } = useContext(FavoritesContext);
+const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = false}) => {
+  const { updateFavorites, removeFavorites } = useContext(FavoritesContext);
   const [discount, setDiscount] = useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
@@ -29,8 +29,12 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
   const handleFavoritesClick = (e) => {
     e.stopPropagation(); //makes sure the Link doesn't listen to the click and route to the view-all page
     e.preventDefault(); //makes sure the the default routing behavior brought by the Link tag doesn't happen
-    updateFavorites({ title, image, price, rating, hasDiscount });
-    setIsClicked((prev) => !prev);
+    if(!isWishlistPage){
+      updateFavorites({ title, image, price, rating, hasDiscount });
+      setIsClicked((prev) => !prev);
+    }else{
+      removeFavorites(title);
+    }
   }
 
   //implement code to make the discount consistent and never change instead of making it random, and create a context that displays the discount or not
@@ -76,7 +80,7 @@ const ItemCard = ({ title, image, price, rating, hasDiscount }) => {
                       padding: "0.3rem",
                       cursor: "pointer",
                     }}
-                    icon={faHeart}
+                    icon={isWishlistPage ? faX : faHeart}
                   />
                 </button>
               </div>
