@@ -1,12 +1,17 @@
 import {useState} from 'react'
 import "./Header.css"
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faMagnifyingGlass, faHeart, faEye, faForward, faBackward, faStar, faCaretRight, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faMagnifyingGlass, faHeart, faTruckFast, faIdCard } from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = () => {
   const [active, setActive] = useState(null);
+  const location = useLocation();
+
+  const originalColor = {color: "rgba(70, 33, 70, 0.5)"};
+  const newColor = {color: "rgba(202, 8, 228, 0.9)"}
+
 
   const links = [
     {id:"1", endpoint:"/", name:"Home"},
@@ -28,7 +33,7 @@ const Header = () => {
         <nav className="links">
           {
             links.map(link => (
-              <NavLink key={link.id} to={link.endpoint} className={active === link.id ? "active" : ""} onClick={() => toggleActive(link.id)}>{link.name}</NavLink>
+              <NavLink key={link.id} to={link.endpoint} className={({isActive}) => isActive ? "active" : ""} onClick={() => toggleActive(link.id)}>{link.name}</NavLink>
             ))
           }
         </nav>
@@ -37,7 +42,9 @@ const Header = () => {
             <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass}/>
         </div>
         <div className="cart-image">
-          <FontAwesomeIcon icon={faShoppingCart}/>
+          <FontAwesomeIcon style={ location.pathname === "/" ? newColor : originalColor} icon={faShoppingCart}/>
+          <Link to="/Wishlist"><FontAwesomeIcon style={ location.pathname === "/Wishlist" ? newColor : originalColor} icon={faHeart}/></Link>
+          <FontAwesomeIcon style={ location.pathname === "/Sign-up"  ? newColor : originalColor} icon={faIdCard}/>
         </div>
       </div>
     </>

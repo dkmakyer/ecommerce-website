@@ -24,7 +24,7 @@
     font-weight: 600;
 }
 .app-name, .cart-image{
-    margin: 0 80px;
+    margin: 0 50px;
 }
 .links{
     width: 500px;
@@ -62,4 +62,12 @@ a{
     color: rgba(202, 8, 228, 0.9);
     text-decoration: underline;
     font-size: 20px;
+}
+.cart-image{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 25px;
+    color: rgba(70, 33, 70, 0.5);
 }
