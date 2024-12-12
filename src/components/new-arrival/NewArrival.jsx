@@ -20,7 +20,7 @@ const NewArrival = () => {
         <div className="new-arrivals-items-container">
           <div className="item1">
             <div className="item-text">
-              <h3>pepsi cola1</h3>
+              <h2>Iphone 13</h2>
               <p>Up to 10% off Voucher</p>
               <button>
                 Shop Now <FontAwesomeIcon icon={faArrowRight} />
@@ -29,7 +29,7 @@ const NewArrival = () => {
           </div>
           <div className="item2">
             <div className="item-text">
-              <h3>pepsi cola2</h3>
+              <h2>Reebok</h2>
               <p>Up to 10% off Voucher</p>
               <button>
                 Shop Now <FontAwesomeIcon icon={faArrowRight} />
@@ -39,7 +39,7 @@ const NewArrival = () => {
           <div className="item3and4">
             <div className="item3">
               <div className="item-text">
-                <h3>pepsi cola3</h3>
+                <h2>Camera</h2>
                 <p>Up to 10% off Voucher</p>
                 <button>
                   Shop Now <FontAwesomeIcon icon={faArrowRight} />
@@ -48,7 +48,7 @@ const NewArrival = () => {
             </div>
             <div className="item4">
               <div className="item-text">
-                <h3>pepsi cola4</h3>
+                <h2>Pepsi Cola</h2>
                 <p>Up to 10% off Voucher</p>
                 <button>
                   Shop Now <FontAwesomeIcon icon={faArrowRight} />

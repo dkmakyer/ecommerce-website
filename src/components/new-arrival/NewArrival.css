@@ -17,9 +17,19 @@
     flex-direction: row;
     margin: 0.5rem 0 2rem 0;
 }
-
-.item1, .item2, .item3, .item4{ 
+.item1{
+    background-image: url("../../assets/iphone.jpg"); 
+}
+.item2{
+    background-image: url("../../assets/reebok.jpg"); 
+}
+.item3{
+    background-image: url("../../assets/camera.jpg"); 
+}
+.item4{
     background-image: url("../../assets/pepsi-image.jpg"); 
+}
+.item1, .item2, .item3, .item4{ 
     /*we will use js to dynamically change the background image based on the current item from the api*/
     /*do it by giving an id to the item1 class and changing the css directly in js*/
     background-repeat: no-repeat;

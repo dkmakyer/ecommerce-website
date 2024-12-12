@@ -1,5 +1,5 @@
 .second-ad{
-    background-image: url("../../assets/pepsi-image.jpg");
+    background-image: url("../../assets/fanta.jpg");
     /*we will use js to dynamically change the background image based on the current item from the api*/
     /*do it by giving an id to the second-ad class and changing the css directly in js*/
     background-repeat: no-repeat;

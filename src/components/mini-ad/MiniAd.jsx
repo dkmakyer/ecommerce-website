@@ -7,8 +7,8 @@ const MiniAd = () => {
   return (
     <>
         <div className="mini-ad">
-            <p>pepsi cola</p>
-            <h1>Up to 10% off Voucher</h1>
+            <h1>Pepsi Cola</h1>
+            <h2>Up to 10% off Voucher</h2>
             <button>
                 Shop Now <FontAwesomeIcon icon={faArrowRight} />
             </button>
