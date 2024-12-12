@@ -15,8 +15,8 @@ const Header = () => {
 
   const links = [
     {id:"1", endpoint:"/", name:"Home"},
-    {id:"2", endpoint:"/Contact", name:"Contact"},
     {id:"3", endpoint:"/About", name:"About"},
+    {id:"2", endpoint:"/Contact", name:"Contact"},
     {id:"4", endpoint:"/Sign-up", name:"Sign-up"}
   ];
 
