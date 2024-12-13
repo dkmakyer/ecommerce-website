@@ -47,6 +47,10 @@
     border-radius: 2px;
     cursor: pointer;
 }
+.log-in-button:hover, .forget-password-button:hover{
+    background-color: rgba(255, 0, 0, 0.3);
+    color: black;
+}
 .forget-password-button{
     color: rgb(211, 29, 29);
     width: 150px;

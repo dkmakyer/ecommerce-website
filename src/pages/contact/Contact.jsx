@@ -1,9 +1,19 @@
-import React from "react";
+import {useState} from "react";
 import "./Contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
+  const [contactFormData, setContactFormData] = useState({name: "", email: "", phone: "", message: ""});
+  function fillContactInfo(event){
+    const {name, value} = event.target;
+    setContactFormData((prevContactFormData) => ({...prevContactFormData, [name]: value}));//dynamically update the value based on the name
+  }
+  function submitContactForm(event){
+    event.preventDefault();
+    alert(`Contact form submitted: ${contactFormData.name}, ${contactFormData.email}, ${contactFormData.phone}, ${contactFormData.message}`);
+    //send form to backend database
+  }
   return (
     <>
       <div className="contact-container">
@@ -33,14 +43,14 @@ const Contact = () => {
           </div>
         </div>
         <div className="contact-form">
-          <form action="">
-            <div className="inputs">
-              <input type="text" placeholder="Your Name" name="name" />
-              <input type="text" placeholder="Your Email" name="email" />
-              <input type="text" placeholder="Your Phone" name="phone" />
+          <form action="" onSubmit={submitContactForm}>
+            <div className="contact-inputs">
+              <input type="text" placeholder="Your Name" name="name" value={contactFormData.name} onChange={fillContactInfo}/>
+              <input type="text" placeholder="Your Email" name="email" value={contactFormData.email} onChange={fillContactInfo}/>
+              <input type="text" placeholder="Your Phone" name="phone" value={contactFormData.phone} onChange={fillContactInfo}/>
             </div>
             <div className="text-area">
-              <textarea name="message" placeholder="Your Message"></textarea>
+              <textarea name="message" placeholder="Your Message" value={contactFormData.message} onChange={fillContactInfo}></textarea>
               <button type="submit">Send Message</button>
             </div>
           </form>
