@@ -42,7 +42,7 @@ const Header = () => {
             <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass}/>
         </div>
         <div className="cart-image">
-          <FontAwesomeIcon style={ location.pathname === "/" ? newColor : originalColor} icon={faShoppingCart}/>
+          <Link to="/Cart"><FontAwesomeIcon style={ location.pathname === "/Cart" ? newColor : originalColor} icon={faShoppingCart}/></Link>
           <Link to="/Wishlist"><FontAwesomeIcon style={ location.pathname === "/Wishlist" ? newColor : originalColor} icon={faHeart}/></Link>
           <FontAwesomeIcon style={ location.pathname === "/Sign-up"  ? newColor : originalColor} icon={faIdCard}/>
         </div>

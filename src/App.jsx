@@ -11,6 +11,7 @@ import Footer from './components/footer/Footer'
 import ViewAll from './pages/view-all/ViewAll'
 import ItemDetails from './pages/item-details/ItemDetails'
 import WishList from './pages/wish-list/WishList'
+import Cart from './pages/cart/Cart'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/View-all' element={<ViewAll/>}/>
           <Route path='/Item-details' element={<ItemDetails/>}/>
           <Route path='/Wishlist' element={<WishList/>}/>
+          <Route path='/Cart' element={<Cart/>}/>
           <Route path='*' element={<p>Page Not found</p>}/>
         </Routes>
         <Footer/>

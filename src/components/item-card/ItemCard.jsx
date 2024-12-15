@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCross, faHeart, faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
+import { CartContext } from "../../contexts/CartContext";
 
-const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = false}) => {
+const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = false, isCartPage = false}) => {
   const { updateFavorites, removeFavorites } = useContext(FavoritesContext);
+  const {addToCart, removeFromCart} = useContext(CartContext)
   const [discount, setDiscount] = useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
@@ -26,6 +28,16 @@ const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = f
     width: "160px",
   };
 
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if(!isCartPage){
+      addToCart({ title, image, price, rating, hasDiscount });
+      setIsClicked((prev) => !prev);
+    }else{
+      removeFromCart(title);
+    }
+  }
   const handleFavoritesClick = (e) => {
     e.stopPropagation(); //makes sure the Link doesn't listen to the click and route to the view-all page
     e.preventDefault(); //makes sure the the default routing behavior brought by the Link tag doesn't happen
@@ -85,7 +97,7 @@ const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = f
                 </button>
               </div>
             )}
-            {hovered && <button className="add-item">Add to Cart</button>}
+            {hovered && <button className="add-item" onClick={handleAddToCart}>Add to Cart</button>}
           </div>
           <div className="item-info">
             <h4>{title}</h4>
