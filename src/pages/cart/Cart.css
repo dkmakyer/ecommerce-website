@@ -4,12 +4,14 @@
     margin: 0;
 }
 .cart-container{
-    padding: 1.5rem 7rem;
+    padding: 1.5rem 20%;
     position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 .cart-back-button{
     position: absolute;
-    right: 100px;
+    right: 5%;
 }
 .cart-heading ul, .cart-item ul{
     margin-top: 3rem;
@@ -28,6 +30,7 @@
 .cart-item ul li:nth-of-type(1){
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 .cart-item ul li input{
     width: 50px;
