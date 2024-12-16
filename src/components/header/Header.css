@@ -23,7 +23,7 @@
     color: black;
     font-weight: 600;
 }
-.app-name, .cart-image{
+.app-name, .header-cart-image{
     margin: 0 50px;
 }
 .links{
@@ -63,7 +63,7 @@ a{
     text-decoration: underline;
     font-size: 20px;
 }
-.cart-image{
+.header-cart-image{
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -32,6 +32,7 @@ const ItemDetails = () => {
   if (!item) {
     return <p>Item cannot be found</p>;
   }
+  
   return (
     <>
       <div className="item-detail-container">

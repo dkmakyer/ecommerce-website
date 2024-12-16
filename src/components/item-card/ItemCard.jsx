@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./ItemCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCross, faHeart, faStar, faX } from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
 import { CartContext } from "../../contexts/CartContext";
@@ -38,6 +38,7 @@ const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = f
       removeFromCart(title);
     }
   }
+  
   const handleFavoritesClick = (e) => {
     e.stopPropagation(); //makes sure the Link doesn't listen to the click and route to the view-all page
     e.preventDefault(); //makes sure the the default routing behavior brought by the Link tag doesn't happen
