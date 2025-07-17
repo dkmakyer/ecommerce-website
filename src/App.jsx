@@ -1,17 +1,8 @@
 import React from 'react'
 import "./App.css"
-import Header from './components/header/Header'
+import { Header , Footer } from './components/index.js'
 import {HashRouter, Routes, Route} from "react-router-dom"
-import Home from './pages/home/Home'
-import About from './pages/about/About'
-import Contact from './pages/contact/Contact'
-import SignUp from './pages/sign-up/Sign-up'
-import LogIn from './pages/log-in/LogIn'
-import Footer from './components/footer/Footer'
-import ViewAll from './pages/view-all/ViewAll'
-import ItemDetails from './pages/item-details/ItemDetails'
-import WishList from './pages/wish-list/WishList'
-import Cart from './pages/cart/Cart'
+import { Home, About, Contact, SignUp, LogIn, ViewAll, ItemDetails, WishList, Cart } from './pages/index.js'
 
 const App = () => {
   return (

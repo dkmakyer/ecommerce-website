@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart, faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
-import { CartContext } from "../../contexts/CartContext";
+// import { CartContext } from "../../contexts/CartContext";
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../../features/cartSlice";
 
-const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = false, isCartPage = false}) => {
+const ItemCard = ({ id = Date.now(), title, image, price, rating, hasDiscount, isWishlistPage = false, isCartPage = false}) => {
   const { updateFavorites, removeFavorites } = useContext(FavoritesContext);
-  const {addToCart, removeFromCart} = useContext(CartContext)
+  // const {addToCart, removeFromCart} = useContext(CartContext);
+  const dispatch = useDispatch();
   const [discount, setDiscount] = useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
@@ -32,10 +35,10 @@ const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = f
     e.stopPropagation();
     e.preventDefault();
     if(!isCartPage){
-      addToCart({ title, image, price, rating, hasDiscount });
+      dispatch(addToCart({ id, title, image, price, rating, hasDiscount }));
       setIsClicked((prev) => !prev);
     }else{
-      removeFromCart(title);
+      dispatch(removeFromCart({ id }));
     }
   }
   

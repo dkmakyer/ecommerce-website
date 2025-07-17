@@ -1,14 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import "./Cart.css";
 import BackButton from "../../components/back-button/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSadCry, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { CartContext } from "../../contexts/CartContext";
+// import { CartContext } from "../../contexts/CartContext";
+
+import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const { cartState } = useContext(CartContext);
+  // const { cartState } = useContext(CartContext);
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
   const [isCartPage] = useState(true);
-  const displayProducts = cartState.map((product) => {
+  const displayProducts = cartItems.map((product) => {
     return (
       <div className="cart-item">
         <ul>
@@ -26,6 +31,8 @@ const Cart = () => {
       </div>
     );
   });
+
+
   return (
     <>
       <div className="cart-container">
@@ -42,7 +49,7 @@ const Cart = () => {
           </ul>
         </div>
         <div className="cart-items-container">
-          {cartState.length === 0 ? (
+          {cartItems.length === 0 ? (
             <h3
               style={{ width: "100%", fontSize: "2rem", marginLeft: "17rem" }}
             >
