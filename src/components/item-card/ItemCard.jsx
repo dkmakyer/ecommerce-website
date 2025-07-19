@@ -15,7 +15,7 @@ const ItemCard = ({ id = Date.now(), title, image, price, rating, hasDiscount, i
   const [discount, setDiscount] = useState(0);
   const [newPrice, setNewPrice] = useState(price);
   const [hovered, setHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState({cartSignal: false, favSignal: false});
 
   const baseStyle = {
     backgroundImage: image ? `url(${image})` : "none",
@@ -37,6 +37,7 @@ const ItemCard = ({ id = Date.now(), title, image, price, rating, hasDiscount, i
     if(!isCartPage){
       dispatch(addToCart({ id, title, image, price, rating, hasDiscount }));
       setIsClicked((prev) => !prev);
+      setIsClicked((prev) => ({...prev, cartSignal: !prev.cartSignal}));
     }else{
       dispatch(removeFromCart({ id }));
     }
@@ -47,7 +48,7 @@ const ItemCard = ({ id = Date.now(), title, image, price, rating, hasDiscount, i
     e.preventDefault(); //makes sure the the default routing behavior brought by the Link tag doesn't happen
     if(!isWishlistPage){
       updateFavorites({ title, image, price, rating, hasDiscount });
-      setIsClicked((prev) => !prev);
+      setIsClicked((prev) => ({...prev, favSignal: !prev.favSignal }));
     }else{
       removeFavorites(title);
     }
@@ -89,7 +90,7 @@ const ItemCard = ({ id = Date.now(), title, image, price, rating, hasDiscount, i
                       width: "15px",
                       height: "15px",
                       border: "1px solid rgb(255, 134, 219)",
-                      backgroundColor: isClicked
+                      backgroundColor: isClicked.favSignal
                         ? "rgb(255, 134, 219)"
                         : "rgb(209, 209, 209)",
                       borderRadius: "50%",
