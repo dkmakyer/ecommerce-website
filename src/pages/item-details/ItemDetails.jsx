@@ -4,18 +4,32 @@ import BackButton from "../../components/back-button/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
-  faRecycle,
   faStar,
-  faVanShuttle,
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { updateQuantity } from "../../features/cartSlice";
 
 const ItemDetails = () => {
-  const [itemCount, setItemCount] =useState(0);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
-  function handleCount(e){
-    const {className} = e.currentTarget;
-    switch(className){
+  const { state } = useLocation();
+  const item = state?.item;
+
+  if (!item) {
+    return <p>Item cannot be found</p>;
+  }
+
+  let currentItem = cartItems.find(cartItem => cartItem.title === item.title);
+
+  const [itemCount, setItemCount] = useState(currentItem?.quantity || 1);
+
+
+  function handleCount(e) {
+    const { className } = e.currentTarget;
+    switch (className) {
       case "subtract-item":
         setItemCount(prev => Math.max(prev - 1, 0));
         break;
@@ -27,12 +41,6 @@ const ItemDetails = () => {
     }
   }
 
-  const { state } = useLocation();
-  const item = state?.item;
-  if (!item) {
-    return <p>Item cannot be found</p>;
-  }
-  
   return (
     <>
       <div className="item-detail-container">
@@ -41,7 +49,7 @@ const ItemDetails = () => {
         </div>
         <div className="item-detail">
           <div >
-            <img className="item-detail-image"src={item.image} alt="item-image" />
+            <img className="item-detail-image" src={item.image} alt="item-image" />
           </div>
           <div className="item-detail-info">
             <h2>{item.title}</h2>
@@ -55,34 +63,16 @@ const ItemDetails = () => {
                 (150 Reviews) | <span>In stock</span>
               </p>
             </div>
-            <h3>${parseFloat(item.price).toFixed(2)}</h3>
+            <h3>Unit Price: ${parseFloat(item.price).toFixed(2)}</h3>
             <div className="buttons">
               <div className="item-count">
                 <button className="subtract-item" onClick={handleCount}><h1>-</h1></button>
-                  <p>{itemCount}</p>
+                <p>{itemCount}</p>
                 <button className="add-item" onClick={handleCount}>+</button>
               </div>
-              <button className="buy-button">Buy Now</button>
-              <button className="item-detail-favorite">
-                <FontAwesomeIcon icon={faHeart} />
-              </button>
+              <button className="update-button" onClick={() => updateQuantity({title: item.title, quantity: itemCount, price: item.price, image: item.image})}>Add to cart</button>
             </div>
-            <div className="delivery-buttons">
-              <button>
-                <FontAwesomeIcon className="delivery-button-fa-icon" icon={faVanShuttle} />
-                <div className="delivery-button-info">
-                  <h3>Free Delivery</h3>
-                  <p>Enter your postal code for Delivery Availability</p>
-                </div>
-              </button>
-              <button>
-                <FontAwesomeIcon className="delivery-button-fa-icon" icon={faRecycle} />
-                <div className="delivery-button-info">
-                  <h3>Return Delivery</h3>
-                  <p className="free-delivery-info">Free 30 Days Delivery Returns. Details</p>
-                </div>
-              </button>
-            </div>
+            <h3>Total Price for Item: ${parseFloat(item.price * itemCount).toFixed(2)}</h3>
           </div>
         </div>
       </div>

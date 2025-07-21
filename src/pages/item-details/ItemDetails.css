@@ -51,10 +51,10 @@
     align-items: center;
     transform: translateY(-5px);
 }
-.item-count button:nth-of-type(2), .buy-button{
+.item-count button:nth-of-type(2), .update-button{
     background-color: rgba(255, 0, 0, 0.8);
 }
-.buy-button{
+.update-button{
     max-width: 130px;
 }
 .item-count button, .buttons .item-detail-favorite{
@@ -67,26 +67,4 @@
     justify-content: space-between;
     flex-direction: row;
     gap: 20px;
-}
-.delivery-buttons button{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 20px;
-    padding: 20px;
-    width: 420px;
-    cursor: pointer;
-}
-.delivery-button-info h3{
-    transform: translateX(-83px);
-}
-.free-delivery-info{
-    transform: translateX(-32px);
-}
-.delivery-button-fa-icon{
-    font-size: 30px;
-    position: absolute;
-    left: 0;
-    margin-left: 20px;
 }

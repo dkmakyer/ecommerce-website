@@ -1,9 +1,9 @@
 import React, {useState } from "react";
+import { Link } from "react-router-dom";
 import "./Cart.css";
-import { useNavigate } from "react-router-dom";
 import BackButton from "../../components/back-button/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faExchange, faRecycle, faSadCry, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faSadCry, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
 import { useSelector, useDispatch } from "react-redux";
@@ -13,7 +13,6 @@ const Cart = () => {
 
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [isCartPage] = useState(true);
   const displayProducts = cartItems.map((product) => {
@@ -27,7 +26,7 @@ const Cart = () => {
           <li>${product.price}</li>
           <li>
             {product.quantity}
-            <span style={{marginLeft: "1rem"}} onClick={() => navigate("/Item-details")}><FontAwesomeIcon icon={faEdit}/></span>
+            <Link to="/Item-details" state={{ item: { title: product.title, image: product.image, price: product.price, rating: product.rating, hadDiscount: product.hasDiscount } }} style={{marginLeft: "1rem"}}><FontAwesomeIcon icon={faEdit}/></Link>
           </li>
           <li>
             ${parseFloat(product.price * product.quantity).toFixed(2)}
