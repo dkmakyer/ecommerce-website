@@ -1,21 +1,24 @@
 import React, {useState } from "react";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
 import BackButton from "../../components/back-button/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSadCry, faTrash } from "@fortawesome/free-solid-svg-icons";
-// import { CartContext } from "../../contexts/CartContext";
+import { faEdit, faExchange, faRecycle, faSadCry, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart, clearCart } from "../../features/cartSlice";
 
 const Cart = () => {
-  // const { cartState } = useContext(CartContext);
 
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [isCartPage] = useState(true);
   const displayProducts = cartItems.map((product) => {
     return (
-      <div className="cart-item">
+      <div className="cart-item" key={product.title}>
         <ul>
           <li>
             <img className="cart-image" src={product.image} alt="cart-image" />
@@ -23,11 +26,14 @@ const Cart = () => {
           </li>
           <li>${product.price}</li>
           <li>
-            <input type="number" min="0" max="100" step="1" />
+            {product.quantity}
+            <span style={{marginLeft: "1rem"}} onClick={() => navigate("/Item-details")}><FontAwesomeIcon icon={faEdit}/></span>
           </li>
-          <li></li>
+          <li>
+            ${parseFloat(product.price * product.quantity).toFixed(2)}
+          </li>
         </ul>
-        <p className="delete-item"><FontAwesomeIcon icon={faTrash}/></p>
+        <p className="delete-item"  onClick={() => dispatch(removeFromCart(product.title))}><FontAwesomeIcon icon={faTrash}/></p>
       </div>
     );
   });
@@ -60,8 +66,8 @@ const Cart = () => {
           )}
         </div>
         <div className="cart-buttons">
-          <button>Return To Shop</button>
-          <button>Update Cart</button>
+          <button onClick={() => navigate("/")}>Return To Shop</button>
+          <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
         </div>
         <div className="cart-footer">
           <div className="coupon">
