@@ -5,14 +5,17 @@ import BackButton from "../../components/back-button/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faSadCry, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart } from "../../features/cartSlice";
 
 const Cart = () => {
+  const cartState = useSelector((state) => state.cart);
+  const cartItems = cartState.cartItems;
+  const cartTotalPrice = cartState.totalPrice;
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [isCartPage] = useState(true);
   const displayProducts = cartItems.map((product) => {
@@ -75,9 +78,9 @@ const Cart = () => {
           </div>
           <div className="cart-total">
             <h2>Cart Total</h2>
-            <h4>Subtotal<span></span></h4>
+            <h4>Subtotal<span style={{marginLeft: "3rem"}}>${parseFloat(cartTotalPrice).toFixed(2)}</span></h4>
             <h4>Shipping: <span>Free</span></h4>
-            <p>Total <span></span></p>
+            <p>Total <span style={{marginLeft: "4.2rem"}}>${parseFloat(cartTotalPrice).toFixed(2)}</span></p>
             <button>Proceed to Checkout</button>
           </div>
         </div>

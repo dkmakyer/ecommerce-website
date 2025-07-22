@@ -6,12 +6,13 @@ import {
   faHeart,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { updateQuantity } from "../../features/cartSlice";
 
 const ItemDetails = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
 
@@ -39,6 +40,11 @@ const ItemDetails = () => {
       default:
         return itemCount;
     }
+  }
+
+  function handleUpdate(){
+    dispatch(updateQuantity({title: item.title, quantity: itemCount, price: item.price, image: item.image}));
+    navigate("/Cart");
   }
 
   return (
@@ -70,7 +76,7 @@ const ItemDetails = () => {
                 <p>{itemCount}</p>
                 <button className="add-item" onClick={handleCount}>+</button>
               </div>
-              <button className="update-button" onClick={() => updateQuantity({title: item.title, quantity: itemCount, price: item.price, image: item.image})}>Add to cart</button>
+              <button className="update-button" onClick={handleUpdate}>Add to cart</button>
             </div>
             <h3>Total Price for Item: ${parseFloat(item.price * itemCount).toFixed(2)}</h3>
           </div>
