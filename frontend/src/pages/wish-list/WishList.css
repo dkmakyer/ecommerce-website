@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.wishlist-container{
+    padding: 1.5rem 7rem;
+    position: relative;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+
+}
+.wishlist-items-container{
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    padding-left: 100px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.wishlist-back-button{
+    position: absolute;
+    right: 100px;
+}

@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.about-us-container{
+    padding: 1.5rem 7rem;
+}
+.our-story, .story{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.story-image{
+    width: 550px;
+    height: 450px;
+    border-radius: 5px;
+}
+.story{
+    padding-right: 3rem;
+    gap: 30px;
+    flex-direction: column;
+}
+.story h1{
+    transform: translateX(-7.9rem);
+    letter-spacing: 15px;
+}
+.assurance-list{
+    padding-bottom: 3.5rem;
+    margin: 5rem 0;
+}
+.assurance-list ul{
+    box-sizing: border-box;
+    max-width: 100%;
+    height: 200px;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: auto;
+    scrollbar-width: none;
+}
+.assurance-list ul li{
+    border: 1px solid var(--bottom-border);
+    width: 170px;
+    height: 150px;
+    list-style-type: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem ;
+    transition: background-color 0.2s ease-in;
+}
+.assurance-list ul li h2{
+    margin-top: 15px;
+}
+.assurance-list ul li p{
+    font-size: 13px;
+}
+.assurance-list ul li:hover{
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    cursor: pointer;
+}
+.assurance-image{
+    font-size: 40px;
+}

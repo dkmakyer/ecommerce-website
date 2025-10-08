@@ -1,0 +1,16 @@
+.view-all-button{
+    width: 120px;
+    height: 40px;
+    background-color: var(--general-red);
+    color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+.view-all-button:hover{
+    background-color: rgba(255, 0, 0, 0.3);
+    color: black;
+    width: 123px;
+}
