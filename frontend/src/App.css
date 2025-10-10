@@ -1,3 +1,9 @@
 *{
     font-family: --font-family;
 }
+
+/* .home-container, .cart-container, .wishlist-container, .about-us-container,.view-all-container, .log-in-container, .item-detail-container, .contact-container, .sign-up-container, .header-container, .footer{
+    min-width: 375px;
+    width: 100%;
+    background-color: yellow;
+} */
