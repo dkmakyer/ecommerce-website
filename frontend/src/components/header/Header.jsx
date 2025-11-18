@@ -28,21 +28,10 @@ const Header = () => {
   return (
     <>
       <div className="header-container">
-
-        <div className="mobile-tablet-header">
-          <div className="header-links-dropdown">
-            {
-              links.map(link => (
-                <NavLink key={link.id} to={link.endpoint} className={({ isActive }) => isActive ? "active" : ""} onClick={() => toggleActive(link.id)}>{link.name}</NavLink>
-              ))
-            }            
-          </div>
+        <div className="app-name">
+          <NavLink to="/">Agbogbloshie <FontAwesomeIcon icon={faTruckFast} /></NavLink>
         </div>
-
-        <div className='desktop-header'>
-          <div className="app-name">
-            <NavLink to="/">Agbogbloshie <FontAwesomeIcon icon={faTruckFast} /></NavLink>
-          </div>
+        <div className='links-container'>
           <nav className="links">
             {
               links.map(link => (
@@ -50,14 +39,16 @@ const Header = () => {
               ))
             }
           </nav>
-          <div className="search-bar">
-            <input type="text" placeholder='what are you looking for?' />
-            <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass} />
-          </div>
-          <div className="header-cart-image">
-            <Link to="/Cart"><FontAwesomeIcon style={location.pathname === "/Cart" ? newColor : originalColor} icon={faShoppingCart} /></Link>
-            <Link to="/Wishlist"><FontAwesomeIcon style={location.pathname === "/Wishlist" ? newColor : originalColor} icon={faHeart} /></Link>
-            <FontAwesomeIcon style={location.pathname === "/Sign-up" ? newColor : originalColor} icon={faIdCard} />
+          <div className='search-bar-cart-image-container'>
+            <div className="search-bar">
+              <input type="text" placeholder='looking for something?' />
+              <FontAwesomeIcon className='search-icon' icon={faMagnifyingGlass} />
+            </div>
+            <div className="header-cart-image">
+              <Link to="/Cart"><FontAwesomeIcon style={location.pathname === "/Cart" ? newColor : originalColor} icon={faShoppingCart} /></Link>
+              <Link to="/Wishlist"><FontAwesomeIcon style={location.pathname === "/Wishlist" ? newColor : originalColor} icon={faHeart} /></Link>
+              <FontAwesomeIcon style={location.pathname === "/Sign-up" ? newColor : originalColor} icon={faIdCard} />
+            </div>
           </div>
         </div>
       </div>
