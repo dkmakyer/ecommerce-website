@@ -19,13 +19,13 @@ const Home = () => {
     <>
       <div className="home-container">
         <Ads />
-        <FlashSales   seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
-        <Category />
+         <FlashSales   seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
+        {/*<Category />
         <BestSelling />
         <SecondAd  seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
         <Products />
         <NewArrival />
-        <Reassurance/>
+        <Reassurance/> */}
       </div>
     </>
   );

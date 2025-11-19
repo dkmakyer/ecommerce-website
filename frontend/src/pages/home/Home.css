@@ -3,9 +3,11 @@
     padding: 0;
     margin: 0;
 }
+
 .home-container{
-    padding: 1.5rem 7rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
 }
-
-
 

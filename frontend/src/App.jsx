@@ -11,7 +11,7 @@ const App = () => {
         <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/About' element={<About/>}/>
+          {/* <Route path='/About' element={<About/>}/>
           <Route path='/Contact' element={<Contact/>}/>
           <Route path='/Sign-up' element={<SignUp/>}/>
           <Route path='/Log-in' element={<LogIn/>}/>
@@ -19,9 +19,9 @@ const App = () => {
           <Route path='/Item-details' element={<ItemDetails/>}/>
           <Route path='/Wishlist' element={<WishList/>}/>
           <Route path='/Cart' element={<Cart/>}/>
-          <Route path='*' element={<p>Page Not found</p>}/>
+          <Route path='*' element={<p>Page Not found</p>}/> */}
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </HashRouter>
     </>
   )

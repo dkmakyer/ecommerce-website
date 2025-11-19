@@ -1,18 +1,17 @@
 .ads-container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
     gap: 10px;
 }
-.ads-links{
-    border-right:1px solid black;
-    width: 250px;
+
+.ads-links ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
 }
+
 .ads-links ul li{
     list-style-type: none;
     padding: 0.2rem 0;
 }
-.caret-link-one{
-    transform: translateX(6rem);
-}.caret-link-two{
-    transform: translateX(7.2rem);
-}
+

@@ -64,45 +64,49 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
 
   return (
     <div className="flash-sales-container">
-      <div className="today">
-        <FontAwesomeIcon
-          style={{ fontSize: "30px", marginRight: "10px" }}
-          icon={faMapPin}
-        />
-        <p>Today's</p>
-      </div>
-      <div className="timer">
-        <h1>Flash Sales</h1>
-        <div className="countdown">
-          <p>
-            <span className="reduce-time-size">Days</span> <span>{days}</span>
-            <span className="colon">:</span>
-          </p>
-          <p>
-            <span className="reduce-time-size">Hours</span> <span>{hours}</span>
-            <span className="colon">:</span>
-          </p>
-          <p>
-            <span className="reduce-time-size">Minutes</span>
-            <span>{minutes}</span> <span className="colon">:</span>
-          </p>
-          <p>
-            <span className="reduce-time-size">Seconds</span>
-            <span>{seconds}</span>
-          </p>
-        </div>
-        <div className="scroll">
-          <div className="left-arrow" onClick={scrollItem}>
-            <FontAwesomeIcon icon={faArrowLeft} />
+      <div className="flash-sales-header">
+        <div className="today-container">
+          <div className="today">
+            <FontAwesomeIcon
+              style={{ fontSize: "30px", marginRight: "10px" }}
+              icon={faMapPin}
+            />
+            <p>Today's</p>
           </div>
-          <div className="right-arrow" onClick={scrollItem}>
-            <FontAwesomeIcon icon={faArrowRight} />
+          <h1>Flash Sales</h1>
+        </div>
+        <div className="countdown-container">
+          <div className="countdown">
+            <p>
+              <span className="timer-figure">{days}</span>
+              <span className="reduce-time-size">Days</span>
+            </p>
+            <p>
+              <span className="timer-figure">{hours}</span>
+              <span className="reduce-time-size">Hours</span>
+            </p>
+            <p>
+              <span className="timer-figure">{minutes}</span>
+              <span className="reduce-time-size">Minutes</span>
+            </p>
+            <p>
+              <span className="timer-figure">{seconds}</span>
+              <span className="reduce-time-size">Seconds</span>
+            </p>
+          </div>
+          <div className="scroll">
+            <div className="left-arrow" onClick={scrollItem}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </div>
+            <div className="right-arrow" onClick={scrollItem}>
+              <FontAwesomeIcon icon={faArrowRight} />
+            </div>
           </div>
         </div>
       </div>
       <div className="items-container">{renderedItems}</div>
       <div className="view-all-products-button">
-        <ViewAllButton/>
+        <ViewAllButton />
       </div>
     </div>
   );

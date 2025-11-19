@@ -1,21 +1,14 @@
 .mini-ad{
     background-image: url("../../assets/pepsi-image.jpg");
-    /*we will use js to dynamically change the background image based on the current item from the api*/
-    /*do it by giving an id to the mini-ad class and changing the css directly in js*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0.9;
+    opacity: 0.8;
     color: rgb(255, 255, 255);
-    width: 750px;
-    height: 300px;
     padding: 4rem;
-}
-.mini-ad p, .mini-ad h1{
-    margin-bottom: 1rem;
-}
-.mini-ad h1{
-    width: 190px;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
 }
 .mini-ad button{
     width: 100px;
