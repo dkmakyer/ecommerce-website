@@ -13,7 +13,7 @@ import ViewAllButton from "../view-all-button/ViewAllButton";
 const FlashSales = ({ seconds, minutes, hours, days }) => {
   const [discount] = useState(true);
   const { products, error } = useContext(ProductContext);
-  const [scroll, setScroll] = useState({ start: 0, end: 6 });
+  const [scroll, setScroll] = useState({ start: 0, end: 4 });
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {

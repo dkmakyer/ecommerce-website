@@ -2,6 +2,7 @@
 .item{
     box-sizing: border-box;
     margin: 0 3rem;
+    max-width: 12rem;
 }
 .discount-area{
     display: grid;

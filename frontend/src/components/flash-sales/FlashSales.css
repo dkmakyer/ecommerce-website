@@ -108,9 +108,15 @@
   }
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .items-container{
     grid-template-columns: repeat(3, 1fr);
+  }
+} */
+
+@media (min-width: 1024px) {
+  .items-container{
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
