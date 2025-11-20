@@ -1,9 +1,7 @@
 
-/*item container*/
 .item{
     box-sizing: border-box;
-    max-height: 250px;
-    min-width: 190px;
+    margin: 0 3rem;
 }
 .discount-area{
     display: grid;
