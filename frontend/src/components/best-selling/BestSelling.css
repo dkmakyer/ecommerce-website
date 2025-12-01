@@ -1,9 +1,8 @@
 .best-selling-container {
-  margin-top: 5rem;
   background-color: #f9f9f9;
   padding: 2rem;
 }
-.best-selling-heading {
+ .best-selling-heading {
   color: var(--general-red);
   width: 115px;
   display: flex;
@@ -11,6 +10,7 @@
   justify-content: space-between;
   flex-direction: row;
 }
+
 .best-selling-navigation {
   display: flex;
   align-items: center;
@@ -20,13 +20,25 @@
 }
 
 .best-selling-items-container {
+  margin-top: 2rem;
+  height: 100%;
   box-sizing: border-box;
-  max-width: 100%;
-  height: 450px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 auto;
   overflow: auto;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+} 
+
+@media (min-width: 550px) {
+  .best-selling-items-container{
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .best-selling-items-container{
+        grid-template-columns: repeat(4, 1fr);
+  }
 }
