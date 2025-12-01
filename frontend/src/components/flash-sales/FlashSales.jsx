@@ -23,7 +23,7 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
   }, [products, error]);
 
   function scrollItem(e) {
-    if (isScrolling) return; //we wouldn't want an error to occur from more than one scrolling effect
+    if (isScrolling) return; 
     setIsScrolling(true);
     let { className } = e.currentTarget;
     const totalProducts = products.length;
@@ -33,10 +33,10 @@ const FlashSales = ({ seconds, minutes, hours, days }) => {
       switch (className) {
         case "left-arrow":
           (newScroll.start = Math.max(0, prev.start - 1)), //display the first item if we happen to go the first item index, so we don't have negative indices
-            (newScroll.end = Math.max(6, prev.end - 1)); //display the last item if we happen to go beyond the first item index
+            (newScroll.end = Math.max(4, prev.end - 1)); //display the last item if we happen to go beyond the first item index
           break;
         case "right-arrow":
-          (newScroll.start = Math.min(prev.start + 1, totalProducts - 6)),
+          (newScroll.start = Math.min(prev.start + 1, totalProducts - 4)),
             (newScroll.end = Math.min(prev.end + 1, totalProducts));
           break;
         default:
