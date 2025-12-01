@@ -1,26 +1,20 @@
 .second-ad{
     background-image: url("../../assets/fanta.jpg");
-    /*we will use js to dynamically change the background image based on the current item from the api*/
-    /*do it by giving an id to the second-ad class and changing the css directly in js*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     opacity: 0.9;
     color: rgb(255, 255, 255);
-    width: 100%;
     height: 350px;
-    padding: 4rem;
-    margin: 7rem 0;
+    padding: 1rem;
 }
 .second-ad p, .second-ad h1{
     margin-bottom: 1rem;
 }
-.second-ad-title{
+ .second-ad-title{
     color: rgb(147, 255, 147);
 }
-.second-ad h1{
-    width: 300px;
-}
+
 .second-ad button{
     width: 150px;
     height: 50px;
@@ -32,18 +26,30 @@
     background-color: rgba(60, 255, 60, 0.5);
     transition: background-color 0.2s ease-out;
 }
+
 .second-ad button:hover{
     background-color: rgb(1, 145, 1);
     color: black;
 }
+
 .second-ad-countdown, .second-ad-countdown p{
     display: flex;
     align-items: center;
 }
+
+.second-ad-countdown{
+    gap: 1rem;
+}
+
+.second-ad h1{
+    max-width: 300px;
+}
+
+
+
 .second-ad-countdown p{
     flex-direction: column;
     padding-top: 5px;
-    margin-right: 30px;
     font-size: 30px;
     width: 50px;
     height: 50px;
@@ -51,10 +57,12 @@
     color: black;
     border-radius: 50%;
 }
+
 .countdown-number{
     font-size: 19px;
 }
+
 .second-ad-reduce-time-size{
     font-size: 10px;
 }
-
+ 
