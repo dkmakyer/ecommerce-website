@@ -24,8 +24,8 @@ const Home = () => {
         {/* <SecondAd  seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/> */}
         {/* <BestSelling /> */}
         {/* <Products /> */}
-         <NewArrival />
-        <Reassurance/> 
+         {/* <NewArrival /> */}
+        {/* <Reassurance/>  */}
       </div>
     </>
   );

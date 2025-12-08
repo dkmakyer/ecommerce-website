@@ -21,7 +21,7 @@ const App = () => {
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='*' element={<p>Page Not found</p>}/> */}
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </HashRouter>
     </>
   )
