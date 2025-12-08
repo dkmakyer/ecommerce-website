@@ -68,7 +68,8 @@ const Products = ({ onShowDiscount }) => {
   return (
     <>
       <div className="our-products-container">
-        <div className="our-products-heading">
+        <div className="our-products-heading-container">
+                  <div className="our-products-heading">
           <FontAwesomeIcon
             style={{ fontSize: "30px", marginRight: "10px" }}
             icon={faShop}
@@ -85,6 +86,7 @@ const Products = ({ onShowDiscount }) => {
               <FontAwesomeIcon icon={faArrowRight} />
             </div>
           </div>
+        </div>
         </div>
         <div className="our-products-items-container">{displayProducts}</div>
         <div className="our-products-button">

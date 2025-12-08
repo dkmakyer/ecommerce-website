@@ -1,94 +1,110 @@
- .new-arrivals-container{
-    margin-top: 5rem;
-    box-sizing: border-box;
+.new-arrivals-container {
+  box-sizing: border-box;
 }
-.new-arrivals-heading{
-    color: var(--general-red);
-    width: 115px; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+.new-arrivals-heading {
+  color: var(--general-red);
+  width: 70px;
 }
-.new-arrivals-navigation{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: 0.5rem 0 2rem 0;
+.new-arrivals-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
 }
-.item1{
-    background-image: url("../../assets/iphone.jpg"); 
-}
-.item2{
-    background-image: url("../../assets/reebok.jpg"); 
-}
-.item3{
-    background-image: url("../../assets/camera.jpg"); 
-}
-.item4{
-    background-image: url("../../assets/pepsi-image.jpg"); 
-}
-.item1, .item2, .item3, .item4{ 
-    /*we will use js to dynamically change the background image based on the current item from the api*/
-    /*do it by giving an id to the item1 class and changing the css directly in js*/
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.9;
-    color: rgb(255, 255, 255);
-    padding: 4rem;
-}
-.item1 h3, .item1 p, .item2 h3, .item2 p, .item3 h3, .item3 p, .item4 h3, .item4 p{
-    margin-bottom: 1rem;
-    align-self:left;
-}
-.item1 p, .item2 p, .item3 p, .item4 p{
-    width: 190px;
-    align-self:left;
-}
-.item1 button, .item2 button, .item3 button, .item4 button{
-    width: 100px;
-    height: 40px;
-    background-color: transparent;
-    color: rgb(255, 255, 255);
-    border: 0;
-    outline: 0;
-    border-bottom: 1px solid rgb(255, 250, 250);
-    transition: background-color 0.2s ease-out;
-    align-self:left;
-}
-.item1 button:hover, .item2 button:hover, .item3 button:hover, .item4 button:hover{
-    background-color: rgba(255, 250, 250, 0.2);
-    color: black;
-}  
 
-
-.new-arrivals-items-container{
-    display: grid;
-    box-sizing: border-box;
-    grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 5rem;
-    gap: 20px;
+.new-arrivals-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0.5rem 0 2rem 0;
 }
 .item1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3; 
+  background-image: url("../../assets/iphone.jpg");
 }
-
 .item2 {
-    grid-column: 3 / 5; 
+  background-image: url("../../assets/reebok.jpg");
+}
+.item3 {
+  background-image: url("../../assets/camera.jpg");
+}
+.item4 {
+  background-image: url("../../assets/pepsi-image.jpg");
+}
+.item1,
+.item2,
+.item3,
+.item4 {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.9;
+  color: rgb(255, 255, 255);
+  padding: 2rem;
+}
+.item1 h3,
+.item1 p,
+.item2 h3,
+.item2 p,
+.item3 h3,
+.item3 p,
+.item4 h3,
+.item4 p {
+  margin-bottom: 1rem;
+  align-self: left;
+}
+.item1 p,
+.item2 p,
+.item3 p,
+.item4 p {
+  align-self: left;
+}
+.item1 button,
+.item2 button,
+.item3 button,
+.item4 button {
+  width: 100px;
+  height: 40px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid rgb(255, 250, 250);
+  transition: background-color 0.2s ease-out;
+  align-self: left;
+}
+.item1 button:hover,
+.item2 button:hover,
+.item3 button:hover,
+.item4 button:hover {
+  background-color: rgba(255, 250, 250, 0.2);
+  color: black;
+}
+
+.item-text {
+  background-color: rgb(255, 255, 255, 0.3);
+  width: 12rem;
+  padding: 1rem;
+}
+
+.new-arrivals-items-container {
+  display: grid;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .new-arrivals-items-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .item1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
+
+  .item2 {
+    grid-column: 3 / 5;
     grid-row: 1 / 2;
+  }
 }
-
-.item3and4 {
-    grid-column: 3 / 5; 
-    grid-row: 2 / 3; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.item3, .item4{
-    width: 265px;
-}
-
