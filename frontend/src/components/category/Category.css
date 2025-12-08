@@ -1,5 +1,6 @@
 .category-container{
     box-sizing: border-box;
+    padding: 1rem;
 }
  .category-heading{
     color: var(--general-red);

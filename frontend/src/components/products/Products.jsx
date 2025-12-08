@@ -87,9 +87,9 @@ const Products = ({ onShowDiscount }) => {
           </div>
         </div>
         <div className="our-products-items-container">{displayProducts}</div>
-          <div className="our-products-button">
-            <ViewAllButton/>
-          </div>
+        <div className="our-products-button">
+          <ViewAllButton />
+        </div>
       </div>
     </>
   );

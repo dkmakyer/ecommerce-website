@@ -18,14 +18,14 @@ const Home = () => {
   return (
     <>
       <div className="home-container">
-        <Ads />
+        {/* <Ads />
          <FlashSales   seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
         <Category />
-         <BestSelling />
-         <SecondAd  seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/>
-        {/*<Products />
-        <NewArrival />
-        <Reassurance/>  */}
+        <SecondAd  seconds={timer.seconds} minutes={timer.minutes} hours={timer.hours} days={timer.days}/> */}
+        {/* <BestSelling /> */}
+        {/* <Products /> */}
+         <NewArrival />
+        {/*<Reassurance/>  */}
       </div>
     </>
   );
