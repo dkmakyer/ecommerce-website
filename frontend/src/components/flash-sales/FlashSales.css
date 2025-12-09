@@ -109,14 +109,14 @@
 
 @media (min-width: 1024px) {  
   .flash-sales-header {
-    width: 83%;
-    grid-template-columns: 1fr 2fr;
+    width: 95%;
+    grid-template-columns: 1fr 3fr;
   }
 
   .items-container{
     grid-template-columns: repeat(4, 1fr);
   }
   .scroll{
-    transform: translateX(6rem);
+    transform: translateX(12rem);
   }
 }
