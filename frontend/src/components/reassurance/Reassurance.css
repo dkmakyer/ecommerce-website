@@ -1,6 +1,6 @@
 .reassurance{
     box-sizing: border-box;
-
+    margin: 1rem;
 }
 .reassurance ul{
     display: grid;

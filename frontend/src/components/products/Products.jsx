@@ -68,8 +68,7 @@ const Products = ({ onShowDiscount }) => {
   return (
     <>
       <div className="our-products-container">
-        <div className="our-products-heading-container">
-                  <div className="our-products-heading">
+        <div className="our-products-heading">
           <FontAwesomeIcon
             style={{ fontSize: "30px", marginRight: "10px" }}
             icon={faShop}
@@ -78,19 +77,20 @@ const Products = ({ onShowDiscount }) => {
         </div>
         <div className="our-products-navigation">
           <h1>Explore Our Products</h1>
-          <div className="scroll">
-            <div className="left-arrow" onClick={scrollItem}>
+          <div className="products-scroll">
+            <div className="products-scroll-left-arrow" onClick={scrollItem}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </div>
-            <div className="right-arrow" onClick={scrollItem}>
+            <div className="products-scroll-right-arrow" onClick={scrollItem}>
               <FontAwesomeIcon icon={faArrowRight} />
             </div>
           </div>
         </div>
-        </div>
-        <div className="our-products-items-container">{displayProducts}</div>
-        <div className="our-products-button">
-          <ViewAllButton />
+        <div className="our-products-list-wrapper">
+          <div className="our-products-items-container">{displayProducts}</div>
+          <div className="our-products-button">
+            <ViewAllButton />
+          </div>
         </div>
       </div>
     </>
