@@ -34,6 +34,9 @@
 .story h1{
     letter-spacing: 15px;
     color: var(--general-red);
+    text-decoration: solid underline var(--general-red);
+    font-size: 3rem;
+    min-width: 357px;
 }
 
 .story h4{
