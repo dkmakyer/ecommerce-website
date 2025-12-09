@@ -30,9 +30,7 @@ const About = () => {
               you would.
             </h4>
           </div>
-          <div >
             <img className="story-image" src={shopping} alt="story image" />
-          </div>
         </div>
         <div className="assurance-list">
           <ul>
