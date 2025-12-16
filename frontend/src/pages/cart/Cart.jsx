@@ -21,23 +21,23 @@ const Cart = () => {
   const displayProducts = cartItems.map((product) => {
     return (
       <div className="cart-item" key={product.title}>
-          <div className="cart-item-wrapper">
-            <h3>{product.title}</h3>
-        <ul>
-          <li>
-            <img className="cart-image" src={product.image} alt="cart-image" />
-          </li>
-          <li>${product.price}</li>
-          <li>
-            {product.quantity}
-            <Link to="/Item-details" state={{ item: { title: product.title, image: product.image, price: product.price, rating: product.rating, hadDiscount: product.hasDiscount } }} style={{ marginLeft: "1rem" }}><FontAwesomeIcon icon={faEdit} /></Link>
-          </li>
-          <li>
-            ${parseFloat(product.price * product.quantity).toFixed(2)}
-          <p className="delete-item" onClick={() => dispatch(removeFromCart(product.title))}><FontAwesomeIcon icon={faTrash} /></p>
-          </li>
-        </ul>
-          </div>
+        <div className="cart-item-wrapper">
+          <h3>{product.title}</h3>
+          <ul>
+            <li>
+              <img className="cart-image" src={product.image} alt="cart-image" />
+            </li>
+            <li>${product.price}</li>
+            <li>
+              {product.quantity}
+              <Link to="/Item-details" state={{ item: { title: product.title, image: product.image, price: product.price, rating: product.rating, hadDiscount: product.hasDiscount } }} style={{ marginLeft: "1rem" }}><FontAwesomeIcon icon={faEdit} /></Link>
+            </li>
+            <li>
+              ${parseFloat(product.price * product.quantity).toFixed(2)}
+              <p className="delete-item" onClick={() => dispatch(removeFromCart(product.title))}><FontAwesomeIcon icon={faTrash} /></p>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   });

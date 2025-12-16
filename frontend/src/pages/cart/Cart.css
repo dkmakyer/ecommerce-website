@@ -54,6 +54,11 @@
     gap: 1rem;
 }
 
+.cart-items-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 .cart-image{
     width: 50px;
     height: 60px;
