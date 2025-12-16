@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 import BackButton from "../../components/back-button/BackButton";
@@ -21,21 +21,23 @@ const Cart = () => {
   const displayProducts = cartItems.map((product) => {
     return (
       <div className="cart-item" key={product.title}>
+          <div className="cart-item-wrapper">
+            <h3>{product.title}</h3>
         <ul>
           <li>
             <img className="cart-image" src={product.image} alt="cart-image" />
-            {product.title}
           </li>
           <li>${product.price}</li>
           <li>
             {product.quantity}
-            <Link to="/Item-details" state={{ item: { title: product.title, image: product.image, price: product.price, rating: product.rating, hadDiscount: product.hasDiscount } }} style={{marginLeft: "1rem"}}><FontAwesomeIcon icon={faEdit}/></Link>
+            <Link to="/Item-details" state={{ item: { title: product.title, image: product.image, price: product.price, rating: product.rating, hadDiscount: product.hasDiscount } }} style={{ marginLeft: "1rem" }}><FontAwesomeIcon icon={faEdit} /></Link>
           </li>
           <li>
             ${parseFloat(product.price * product.quantity).toFixed(2)}
+          <p className="delete-item" onClick={() => dispatch(removeFromCart(product.title))}><FontAwesomeIcon icon={faTrash} /></p>
           </li>
         </ul>
-        <p className="delete-item"  onClick={() => dispatch(removeFromCart(product.title))}><FontAwesomeIcon icon={faTrash}/></p>
+          </div>
       </div>
     );
   });
@@ -44,10 +46,12 @@ const Cart = () => {
   return (
     <>
       <div className="cart-container">
-        <div className="cart-back-button">
-          <BackButton />
+        <div className="cart-navigation">
+          <div className="cart-back-button">
+            <BackButton />
+          </div>
+          <h2>Your Cart</h2>
         </div>
-        <h2>Your Cart</h2>
         <div className="cart-heading">
           <ul>
             <li><h3>Product</h3></li>
@@ -58,9 +62,7 @@ const Cart = () => {
         </div>
         <div className="cart-items-container">
           {cartItems.length === 0 ? (
-            <h3
-              style={{ width: "100%", fontSize: "2rem", marginLeft: "17rem" }}
-            >
+            <h3>
               You Cart is Empty <FontAwesomeIcon icon={faSadCry} />
             </h3>
           ) : (
@@ -73,14 +75,14 @@ const Cart = () => {
         </div>
         <div className="cart-footer">
           <div className="coupon">
-            <input type="text" placeholder="Coupon Code"/>
+            <input type="text" placeholder="Coupon Code" />
             <button>Apply Coupon</button>
           </div>
           <div className="cart-total">
             <h2>Cart Total</h2>
-            <h4>Subtotal<span style={{marginLeft: "3rem"}}>${parseFloat(cartTotalPrice).toFixed(2)}</span></h4>
+            <h4>Subtotal<span style={{ marginLeft: "3rem" }}>${parseFloat(cartTotalPrice).toFixed(2)}</span></h4>
             <h4>Shipping: <span>Free</span></h4>
-            <p>Total <span style={{marginLeft: "4.2rem"}}>${parseFloat(cartTotalPrice).toFixed(2)}</span></p>
+            <p>Total <span style={{ marginLeft: "4.2rem" }}>${parseFloat(cartTotalPrice).toFixed(2)}</span></p>
             <button>Proceed to Checkout</button>
           </div>
         </div>

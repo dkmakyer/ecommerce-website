@@ -1,109 +1,140 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-.cart-container{
-    padding: 1.5rem 20%;
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: 375px;
 }
-.cart-back-button{
-    position: absolute;
-    right: 5%;
+.cart-navigation {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
 }
-.cart-heading ul, .cart-item ul{
-    margin-top: 3rem;
+
+.cart-item-wrapper, .cart-heading ul{
     border: 2px solid rgba(143, 143, 143, 0.5);
-    padding: 2rem;
     border-radius: 5px;
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    align-items: center;
+    padding: 1rem;
 }
+
+.cart-item-wrapper h3{
+    margin-bottom: 1rem;
+    color: rgba(255, 0, 0, 0.8);
+}
+
+.cart-heading ul,
+.cart-item ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
 .cart-item{
-    position: relative;
-    display: flex;
+    display: column;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 }
-.cart-item ul li:nth-of-type(1){
+
+.cart-item ul li:nth-of-type(4){
     display: flex;
-    align-items: center;
-    gap: 20px;
+    flex-direction: row;
+    gap: 1rem;
 }
-.cart-item ul li input{
-    width: 50px;
-}
+
 .cart-image{
     width: 50px;
     height: 60px;
 }
-.cart-items-container{
-    margin: 0.5rem 0 20px 0;
+
+.cart-buttons,
+.cart-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.cart-item .delete-item{
-    position: absolute;
-    right: 5%;
-    top: 60%;
+
+.cart-buttons button,
+.cart-footer .coupon button,
+.cart-footer .cart-total button {
+  width: 120px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  outline: 0;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
 }
-.cart-buttons, .cart-footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.cart-buttons button:hover,
+.cart-footer .coupon button:hover {
+  background-color: rgba(255, 11, 11, 0.5);
+  color: rgb(255, 255, 255);
+  width: 123px;
 }
-.cart-buttons button, .cart-footer .coupon button, .cart-footer .cart-total button{
-    width: 120px;
-    height: 40px;
-    border: 0;
-    border-radius: 5px;
-    outline: 0;
-    transition: background-color 0.5s ease;
-    cursor: pointer;
+
+.cart-footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
-.cart-buttons button:hover, .cart-footer .coupon button:hover{
-    background-color: rgba(255, 11, 11, 0.5);
-    color: rgb(255, 255, 255);
-    width: 123px;
+
+.cart-footer .coupon {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
 }
-.cart-footer{
-    margin-top: 2rem;
+
+.cart-footer .coupon input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
 }
-.cart-footer .coupon{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-}
-.cart-footer .coupon input{
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-}
+
 .cart-footer .cart-total{
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 250px;
 }
+
 .cart-total{
     border: 1px solid rgb(48, 46, 46);
     border-radius: 2px;
     padding: 0.5rem;
+    margin: 0 auto;
 }
+
 .cart-total h4{
     padding: 0.5rem 0;
     border-bottom: 1px solid rgb(48, 46, 46);
 }
+
 .cart-footer .cart-total button{
     width: 200px;
-    margin-left: 15px ;
+    margin: 0 auto;
 }
+
 .cart-footer .cart-total button:hover{
     background-color: rgba(255, 11, 11, 0.5);
     color: rgb(255, 255, 255);
+}
+
+@media (min-width: 550px) {
+  .cart-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
