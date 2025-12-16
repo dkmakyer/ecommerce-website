@@ -20,9 +20,6 @@ const LogIn = () => {
   return (
     <>
       <div className="log-in-container">
-        <div className="log-in-image-container">
-          <img className="log-in-img" src={miniMart} alt="mart-image" />
-        </div>
         <div className="log-in-form">
           <h2>Log in to Agbogbloshie</h2>
           <h4>Enter your details below</h4>

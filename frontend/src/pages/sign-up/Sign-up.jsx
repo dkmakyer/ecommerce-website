@@ -27,10 +27,7 @@ const SignUp = () => {
   return (
     <>
       <div className="sign-up-container">
-        <div className="shopping-image-container">
-          <img className="shopping-img" src={shopping} alt="cart-image" />
-        </div>
-        <div className="form">
+        <div className="sign-up-form">
           <h2>Create an Account</h2>
           <h4>Enter your details below</h4>
           <form action="" onSubmit={submitSignUp}>
@@ -57,18 +54,18 @@ const SignUp = () => {
                 onChange={fillSignUp}
               />
             </div>
-            <div className="buttons">
+            <div className="sign-up-buttons">
               <button type="submit" className="create-account-button">
                 Create Account
               </button>
               <button type="submit" className="google-sign-in-button">
-                <img src={google} alt="google image" />
                 <span>Sign in with Google</span>
+                <img src={google} alt="google image" />
               </button>
             </div>
-            <div className="log-in">
+            <div className="sign-up-log-in">
               <p>Already have an account?</p>
-              <NavLink to="/Log-in" className="log-in-link-button">
+              <NavLink to="/Log-in" className="sign-up-log-in-link-button">
                 Log in
               </NavLink>
             </div>
