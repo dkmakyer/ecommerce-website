@@ -1,10 +1,10 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import "./WishList.css";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
 import BackButton from "../../components/back-button/BackButton";
 import ItemCard from "../../components/item-card/ItemCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSadCry} from "@fortawesome/free-solid-svg-icons";
+import { faSadCry } from "@fortawesome/free-solid-svg-icons";
 
 const WishList = () => {
   const { favorites } = useContext(FavoritesContext);
@@ -25,11 +25,15 @@ const WishList = () => {
   return (
     <>
       <div className="wishlist-container">
-        <div className="wishlist-back-button">
-          <BackButton />
+        <div className="wishlist-navigation">
+          <div className="wishlist-back-button">
+            <BackButton />
+          </div>
+          <h2>Your Wishlist</h2>
         </div>
-        <h2>Your Wishlist</h2>
-        <div className="wishlist-items-container">{favorites.length === 0 ? (<h3 style={{width: "100%", fontSize: "2rem", marginLeft: "17rem"}}>Empty      <FontAwesomeIcon icon={faSadCry}/></h3>): displayProducts}</div>
+        {
+          favorites.length === 0 ? (<h3 className="empty-favorites-text">Empty     <FontAwesomeIcon icon={faSadCry} /></h3>) : (<div className="wishlist-items-container">{displayProducts}</div>)
+        }
       </div>
     </>
   );

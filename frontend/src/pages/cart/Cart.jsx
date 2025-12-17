@@ -62,7 +62,7 @@ const Cart = () => {
         </div>
         <div className="cart-items-container">
           {cartItems.length === 0 ? (
-            <h3>
+            <h3 className="empty-cart-text">
               You Cart is Empty <FontAwesomeIcon icon={faSadCry} />
             </h3>
           ) : (
