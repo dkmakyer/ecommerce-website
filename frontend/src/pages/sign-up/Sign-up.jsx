@@ -4,7 +4,7 @@ import images from "../../images";
 import { NavLink } from "react-router-dom";
 
 const SignUp = () => {
-  const { shopping, google } = images;
+  const { google } = images;
 
   const [signUpData, setSignUPData] = useState({
     name: "",

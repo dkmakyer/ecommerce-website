@@ -3,7 +3,6 @@ import "./LogIn.css"
 import images from "../../images";
 
 const LogIn = () => {
-  const { miniMart} = images;
   const [logInData, setLogInData] = useState({email:"", password:""});
   
   function fillLogIn(event){

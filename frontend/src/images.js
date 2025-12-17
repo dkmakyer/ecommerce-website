@@ -1,8 +1,8 @@
-import shopping from "./assets/shopping.jpg"
-import miniMart from "./assets/mini-mart.jpg"
-import google from "./assets/google-icon.png"
-import pepsi from "./assets/pepsi-image.jpg"
-import googlePlay from "./assets/google-play.png"
+import shopping from "/images/shopping.jpg"
+import miniMart from "/images/mini-mart.jpg"
+import google from "/images/google-icon.png"
+import pepsi from "/images/pepsi-image.jpg"
+import googlePlay from "/images/google-play.png"
 
 const images = {shopping, miniMart, google, pepsi, googlePlay};
 

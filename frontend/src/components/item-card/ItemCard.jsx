@@ -20,7 +20,6 @@ const ItemCard = ({ title, image, price, rating, hasDiscount, isWishlistPage = f
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "contain",
-    // width: "120px",
     zIndex: 1,
     transition: "all 0.3s ease",
   };

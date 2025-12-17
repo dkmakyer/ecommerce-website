@@ -1,6 +1,6 @@
 import React from 'react'
 import "./About.css"
-import shopping from "../../assets/about-us-shopping.jpg"
+import shopping from "/images/about-us-shopping.jpg"
 import Reassurance from "../../components/reassurance/Reassurance";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping, faBuilding, faDollar, faFunnelDollar } from '@fortawesome/free-solid-svg-icons'

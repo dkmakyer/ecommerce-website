@@ -21,16 +21,16 @@
   margin: 0.5rem 0 2rem 0;
 }
 .item1 {
-  background-image: url("../../assets/iphone.jpg");
+  background-image: url("/images/iphone.jpg");
 }
 .item2 {
-  background-image: url("../../assets/reebok.jpg");
+  background-image: url("/images/reebok.jpg");
 }
 .item3 {
-  background-image: url("../../assets/camera.jpg");
+  background-image: url("/images/camera.jpg");
 }
 .item4 {
-  background-image: url("../../assets/pepsi-image.jpg");
+  background-image: url("/images/pepsi-image.jpg");
 }
 .item1,
 .item2,
