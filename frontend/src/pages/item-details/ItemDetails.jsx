@@ -6,7 +6,7 @@ import {
   faHeart,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { updateQuantity } from "../../features/cartSlice";
@@ -42,8 +42,8 @@ const ItemDetails = () => {
     }
   }
 
-  function handleUpdate(){
-    dispatch(updateQuantity({title: item.title, quantity: itemCount, price: item.price, image: item.image}));
+  function handleUpdate() {
+    dispatch(updateQuantity({ title: item.title, quantity: itemCount, price: item.price, image: item.image }));
     navigate("/Cart");
   }
 
@@ -51,6 +51,7 @@ const ItemDetails = () => {
     <>
       <div className="item-detail-container">
         <div className="item-detail-back-button">
+          <p></p>
           <BackButton />
         </div>
         <div className="item-detail">
